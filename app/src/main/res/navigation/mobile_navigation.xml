@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/articleFragment">
+
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.lettuceapp.ui.article.ArticleFragment"
+        android:label="@string/menu_article"
+        tools:layout="@layout/fragment_article" />
+
+    <fragment
+        android:id="@+id/learningFragment"
+        android:name="com.example.lettuceapp.ui.learning.LearningFragment"
+        android:label="@string/menu_learning"
+        tools:layout="@layout/fragment_learning" />
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.lettuceapp.ui.user.UserFragment"
+        android:label="@string/menu_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.lettuceapp.ui.statistics.StatisticsFragment"
+        android:label="@string/menu_statistics"
+        tools:layout="@layout/fragment_statistics" />
+</navigation>
