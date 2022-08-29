@@ -13,4 +13,14 @@
     <string name="menu_statistics">Statistics</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    //Values for learning module
+    <string name="card_js">JavaScript</string>
+    <string name="card_js_desc">Empower you with the skills to design client-side and platform-independent solutions</string>
+    <string name="card_chemistry">Chemistry</string>
+    <string name="card_chemistry_desc">Offers a rigorous, foundational treatment of atoms and molecules.</string>
+    <string name="card_acct">Accouting</string>
+    <string name="card_acct_desc">Focuses on the process of auditing financial statements</string>
 </resources>
