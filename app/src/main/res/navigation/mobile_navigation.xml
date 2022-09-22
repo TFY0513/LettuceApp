@@ -9,13 +9,23 @@
         android:id="@+id/articleFragment"
         android:name="com.example.lettuceapp.ui.article.ArticleFragment"
         android:label="@string/menu_article"
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article" >
+        <action
+            android:id="@+id/action_articleFragment_to_learningFragment"
+            app:destination="@id/learningFragment"
+            app:popUpTo="@id/articleFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/learningFragment"
         android:name="com.example.lettuceapp.ui.learning.LearningFragment"
         android:label="@string/menu_learning"
-        tools:layout="@layout/fragment_learning" />
+        tools:layout="@layout/fragment_learning" >
+        <action
+            android:id="@+id/action_learningFragment_to_materialFragment"
+            app:destination="@id/materialFragment"
+            app:popUpTo="@id/learningFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/userFragment"
@@ -27,4 +37,9 @@
         android:name="com.example.lettuceapp.ui.statistics.StatisticsFragment"
         android:label="@string/menu_statistics"
         tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/materialFragment"
+        android:name="com.example.lettuceapp.ui.learning.MaterialFragment"
+        android:label="@string/menu_material"
+        tools:layout="@layout/fragment_material" />
 </navigation>

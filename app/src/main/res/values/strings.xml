@@ -9,6 +9,7 @@
 
     <string name="menu_article">Article</string>
     <string name="menu_learning">Learning</string>
+    <string name="menu_material">Material</string>
     <string name="menu_user">User</string>
     <string name="menu_statistics">Statistics</string>
     <!-- TODO: Remove or change this placeholder text -->
