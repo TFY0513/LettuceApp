@@ -1,6 +1,7 @@
 package com.example.lettuceapp.ui.learning
 
-import android.R
+import com.example.lettuceapp.R
+//import android.R
 import android.app.FragmentManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,7 +22,7 @@ import com.google.android.material.navigation.NavigationView
 
 class LearningFragment : Fragment(){
 
-    var navc: NavController ?= null
+
     private var _binding: FragmentLearningBinding? = null
 
     // This property is only valid between onCreateView and
@@ -40,9 +41,6 @@ class LearningFragment : Fragment(){
         val root: View = binding.root
 
 
-        binding.cardJs.setOnClickListener{
-
-        }
         return root
     }
 
@@ -51,14 +49,15 @@ class LearningFragment : Fragment(){
         _binding = null
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        navc = Navigation.findNavController(view)
-//
-//        binding.button1.setOnClickListener(this)
-//
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        binding.cardJs.setOnClickListener{
+            findNavController().navigate(R.id.action_learningFragment_to_materialFragment)
+        }
+
+    }
 
 
 //    fun onClick(view: View){

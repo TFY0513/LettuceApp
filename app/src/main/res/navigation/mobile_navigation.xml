@@ -41,5 +41,15 @@
         android:id="@+id/materialFragment"
         android:name="com.example.lettuceapp.ui.learning.MaterialFragment"
         android:label="@string/menu_material"
-        tools:layout="@layout/fragment_material" />
+        tools:layout="@layout/fragment_material" >
+        <action
+            android:id="@+id/action_materialFragment_to_difficultyFragment"
+            app:destination="@id/difficultyFragment"
+            app:popUpTo="@id/materialFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/difficultyFragment"
+        android:name="com.example.lettuceapp.ui.learning.DifficultyFragment"
+        android:label="@string/menu_level"
+        tools:layout="@layout/fragment_difficulty" />
 </navigation>

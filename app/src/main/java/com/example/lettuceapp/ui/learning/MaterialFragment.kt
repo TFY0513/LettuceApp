@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.lettuceapp.R
 import com.example.lettuceapp.databinding.FragmentLearningBinding
 import com.example.lettuceapp.databinding.FragmentMaterialBinding
 
@@ -13,14 +15,6 @@ class MaterialFragment : Fragment() {
     private  var _binding: FragmentMaterialBinding? = null
 
     private val binding get() = _binding!!
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,5 +35,13 @@ class MaterialFragment : Fragment() {
         _binding = null
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+
+        binding.quiz.setOnClickListener{
+            findNavController().navigate(R.id.action_materialFragment_to_difficultyFragment)
+        }
+
+    }
 }
