@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lettuceapp.databinding.ActivityMainBinding
+import com.example.lettuceapp.ui.learning.LearningFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
 
 
 

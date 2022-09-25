@@ -60,10 +60,10 @@
 
 <!--</ScrollView>-->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ui.learning.LearningFragment">
 
@@ -87,10 +87,9 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/card_js_red"
+            app:cardBackgroundColor="@color/card_js_purple"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp">
-
 
 
             <TextView
@@ -140,7 +139,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/card_ches_brown"
+            app:cardBackgroundColor="@color/card_ches_mint"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp">
 
@@ -189,7 +188,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/card_acct_green"
+            app:cardBackgroundColor="@color/card_acct_blue"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp">
 
@@ -228,5 +227,5 @@
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
-</RelativeLayout>
+</FrameLayout>
 
