@@ -29,4 +29,10 @@
 
     <string name="card_notes">Notes</string>
 
+    <!-- Values for article default holder text -->
+    <string name="article_default_date_updated">Date updated</string>
+    <string name="article_default_title">Article title</string>
+    <string name="article_default_author">Author</string>
+    <string name="article_default_summary">Summary</string>
+
 </resources>
