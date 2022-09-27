@@ -14,6 +14,8 @@
     <string name="menu_statistics">Statistics</string>
 
     <string name="menu_level">Difficulty</string>
+    <string name="menu_question">Question</string>
+
 
     //Values for learning module
     <string name="card_js">JavaScript</string>
@@ -64,6 +66,9 @@
     <string name="easy_level_desc">- 10 question\n- 3 answer each question</string>
     <string name="normal_level_desc">- 20 question\n- 3/4 answer each question</string>
     <string name="hard_level_desc">- 30 question\n- 4 answer each question</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

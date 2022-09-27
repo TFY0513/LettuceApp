@@ -55,7 +55,11 @@
         android:id="@+id/difficultyFragment"
         android:name="com.example.lettuceapp.ui.learning.DifficultyFragment"
         android:label="@string/menu_level"
-        tools:layout="@layout/fragment_difficulty" />
+        tools:layout="@layout/fragment_difficulty" >
+        <action
+            android:id="@+id/action_difficultyFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/surveyFragment2"
         android:name="com.example.lettuceapp.ui.survey.SurveyFragment"
@@ -76,4 +80,9 @@
         android:name="com.example.lettuceapp.ui.learning.ViewVideoFragment"
         android:label="@string/disp_video"
         tools:layout="@layout/fragment_view_video" />
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.lettuceapp.QuestionFragment"
+        android:label="@string/menu_question"
+        tools:layout="@layout/fragment_question" />
 </navigation>
