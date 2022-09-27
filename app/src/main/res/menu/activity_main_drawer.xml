@@ -18,6 +18,10 @@
             android:icon="@drawable/ic_baseline_pie_chart_outline_24"
             android:title="@string/menu_statistics" />
         <item
+            android:id="@+id/surveyFragment"
+            android:icon="@drawable/ic_baseline_list_alt_24"
+            android:title="@string/survey_label" />
+        <item
             android:id="@+id/userFragment"
             android:icon="@drawable/ic_baseline_account_circle_24"
             android:title="@string/menu_user" />

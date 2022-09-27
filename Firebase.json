@@ -1,0 +1,36 @@
+{
+  "article":{
+    "article_1":{
+      "title":"Open education resources offer many benefits: how to remove obstacles",
+      "author":"Vollan Okoth Ochieng",
+      "summary":"Open education resource platforms improve access to education and are globalising education on a scale never seen before.",
+      "article_url":"https://theconversation.com/open-education-resources-offer-many-benefits-how-to-remove-obstacles-171687",
+      "image_preview_url":"https://images.theconversation.com/files/434712/original/file-20211130-21-13hzv65.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=668&h=324&fit=crop",
+      "timestamp":1641398400
+    },
+    "article_2":{
+      "title":"Africa’s agenda for children: progress, but still a long way to go",
+      "author":"Rongedzayi Fambasayi",
+      "summary":"Policy changes and advocacy efforts have lead to improvements in the protection and wellbeing of children on the continent. But a lot more still needs to be done.",
+      "article_url":"https://theconversation.com/africas-agenda-for-children-progress-but-still-a-long-way-to-go-162677",
+      "image_preview_url":"https://images.theconversation.com/files/406534/original/file-20210615-3862-sjkvg1.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=240&h=240&fit=crop",
+      "timestamp":1623772800
+    },
+    "article_3":{
+      "title":"How blockchain could help the world meet the UN’s global goals in higher education",
+      "author":"Rory McGreal",
+      "summary":"Open-educational resources are critical for increasing global learners’ access to education during COVID-19 and beyond. Blockchain technology can address concerns about plagiarism in resources.",
+      "article_url":"https://theconversation.com/how-blockchain-could-help-the-world-meet-the-uns-global-goals-in-higher-education-152885",
+      "image_preview_url":"https://images.theconversation.com/files/379363/original/file-20210118-15-1kz2tvb.jpg?ixlib=rb-1.1.0&rect=794%2C342%2C4124%2C4124&q=45&auto=format&w=240&h=240&fit=crop",
+      "timestamp":1611072000
+    },
+    "article_4":{
+      "title":"COVID-19 exposes the underbelly of South Africa’s education system",
+      "author":"Zahraa McDonald",
+      "summary":"The inequalities in South Africa’s education are systematically being exposed at a scale not experienced before.",
+      "article_url":"https://theconversation.com/covid-19-exposes-the-underbelly-of-south-africas-education-system-138563",
+      "image_preview_url":"https://images.theconversation.com/files/336443/original/file-20200520-152327-3ll0v6.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=240&h=240&fit=crop",
+      "timestamp":1626019200
+    }
+  }
+}

@@ -3,6 +3,7 @@ package com.example.lettuceapp.model
 import android.graphics.Bitmap
 import java.util.*
 
-class Article (var backgroundImage : Bitmap, var articleTitle : String
-, var author : String, var sourceUrl : String, var articleDate: Date, var summary: String) {
+data class Article (var article_url : String? = null, var author : String? = null,
+               var image_preview_url : String? = null, var summary : String? = null,
+               var timestamp: Long? = null, var title: String? = null) {
 }

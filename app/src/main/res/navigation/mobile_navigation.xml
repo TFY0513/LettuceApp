@@ -52,4 +52,9 @@
         android:name="com.example.lettuceapp.ui.learning.DifficultyFragment"
         android:label="@string/menu_level"
         tools:layout="@layout/fragment_difficulty" />
+    <fragment
+        android:id="@+id/surveyFragment2"
+        android:name="com.example.lettuceapp.ui.survey.SurveyFragment"
+        android:label="@string/survey_label"
+        tools:layout="@layout/fragment_survey" />
 </navigation>

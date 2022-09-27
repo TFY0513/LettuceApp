@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lettuceapp">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,12 +17,19 @@
         android:theme="@style/Theme.LettuceApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.learning.LearningMaterial"
-            android:exported="false" />
+            android:name=".ui.article.ArticleWebView"
+            android:exported="false"
+            android:label="@string/title_activity_article_web_view"
+            android:parentActivityName=".MainActivity"/>
+<!--        <activity-->
+<!--            android:name=".ui.learning.LearningMaterial"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.LettuceApp.NoActionBar"/>
+        <activity
+            android:name=".LaunchSplashActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.LettuceApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +38,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
