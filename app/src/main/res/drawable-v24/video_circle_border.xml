@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+
+            android:shape="oval">
+
+            <solid android:color="@color/card_circle_grey" />
+
+            <size android:width="5dp" android:height="5dp" />
+            <padding
+                android:left="@dimen/video_icon_size"
+                android:top="@dimen/video_icon_size"
+                android:right="@dimen/video_icon_size"
+                android:bottom="@dimen/video_icon_size" />
+
+        </shape>
+
+    </item>
+
+</selector>

@@ -2,6 +2,9 @@ package com.example.lettuceapp
 
 import android.os.Bundle
 import android.view.Menu
+import androidx.activity.viewModels
+
+import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -9,7 +12,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.lettuceapp.databinding.ActivityMainBinding
+import com.example.lettuceapp.databinding.FragmentMaterialBinding
+import com.example.lettuceapp.ui.learning.LearningFragment
+import com.example.lettuceapp.ui.learning.LearningViewModel
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -57,5 +66,16 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
+//
+//    fun passData(course: String) {
+//        val bundle = Bundle()
+//        bundle.putString("course", course)
+//        val transaction = this.supportFragmentManager.beginTransaction()
+//        val fragmentTwo = Fragment
+//        fragmentTwo.arguments = bundle
+//        transaction.replace(R.id.relativeLayout, fragmentTwo)
+//        transaction.addToBackStack(null)
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//        transaction.commit()
+//    }
 }

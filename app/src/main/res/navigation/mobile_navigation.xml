@@ -46,6 +46,10 @@
             android:id="@+id/action_materialFragment_to_difficultyFragment"
             app:destination="@id/difficultyFragment"
             app:popUpTo="@id/materialFragment" />
+        <action
+            android:id="@+id/action_materialFragment_to_videoFragment"
+            app:destination="@id/videoFragment"
+            app:popUpTo="@id/materialFragment" />
     </fragment>
     <fragment
         android:id="@+id/difficultyFragment"
@@ -57,4 +61,9 @@
         android:name="com.example.lettuceapp.ui.survey.SurveyFragment"
         android:label="@string/survey_label"
         tools:layout="@layout/fragment_survey" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.lettuceapp.ui.learning.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" />
 </navigation>

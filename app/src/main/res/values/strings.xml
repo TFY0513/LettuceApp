@@ -29,6 +29,7 @@
 
     <string name="card_notes">Notes</string>
 
+
     <string name="difficulty">Select quiz level</string>
 
     <string name="video_desc">Various video</string>
@@ -38,6 +39,27 @@
     <string name="easy_level">Beginner</string>
     <string name="normal_level">Intermediate</string>
     <string name="hard_level">Professional</string>
+
+    <string name="video">Videos</string>
+
+    <string name="js_videoTitle1">Learn JAVASCRIPT in just 5 MINUTES (2020)</string>
+    <string name="js_videoTitle2">Learn JAVASCRIPT in 5 MINUTES->JavaScript Tutorial for Beginner</string>
+    <string name="js_videoTitle3">Learn to Code in 5 Minutes - HTML, CSS, and Javascript Tutorial</string>
+    <string name="js_videoTitle4">Coding "Snake" in 4 min 30 sec (plain browser JavaScript)</string>
+    <string name="js_videoTitle5">Simple JavaScript Slideshow In 5 Minutes</string>
+
+    <string name="chem_videoTitle1">Chemistry explained in 5 minutes</string>
+    <string name="chem_videoTitle2">Chemistry SPM: Learn 6.6 Standard Solution In 5 Minutes</string>
+    <string name="chem_videoTitle3">Chemistry Fundamentals in 6 Minutes</string>
+    <string name="chem_videoTitle4">Form 5 KSSM Chemistry IUPAC Naming Guide in 6 minutes</string>
+    <string name="chem_videoTitle5">IGCSE CHEMISTRY REVISION [Syllabus 3 part 1] - Atomic Structure</string>
+
+    <string name="acct_videoTitle1">5 Tips for Studying Accounting</string>
+    <string name="acct_videoTitle2">Learn the Accounting Equation in 5 Minutes (The Easy Way)</string>
+    <string name="acct_videoTitle3">Accounting for Beginner #1</string>
+    <string name="acct_videoTitle4">Accounting 101: Learn Basic Accounting in 7 Minutes!</string>
+    <string name="acct_videoTitle5">Understand the Basic of Accounting in 5 minutes | Filipino</string>
+
 
     <string name="easy_level_desc">- 10 question\n- 3 answer each question</string>
     <string name="normal_level_desc">- 20 question\n- 3/4 answer each question</string>

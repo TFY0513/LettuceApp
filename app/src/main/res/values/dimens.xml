@@ -13,4 +13,7 @@
     <dimen name="card_icon_radius">120dp</dimen>
     <dimen name="card_icon_marginLeft">240dp</dimen>
     <dimen name="card_icon_marginTop">25dp</dimen>
+
+
+    <dimen name="video_icon_size">4dp</dimen>
 </resources>

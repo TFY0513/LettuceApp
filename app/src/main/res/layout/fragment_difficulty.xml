@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewDifficulty">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/easy"
+                android:id="@+id/video1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -97,7 +97,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/normal"
+                android:id="@+id/video2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
