@@ -57,6 +57,11 @@
         android:label="@string/menu_level"
         tools:layout="@layout/fragment_difficulty" />
     <fragment
+        android:id="@+id/surveyFragment2"
+        android:name="com.example.lettuceapp.ui.survey.SurveyFragment"
+        android:label="@string/survey_label"
+        tools:layout="@layout/fragment_survey" />
+    <fragment
         android:id="@+id/videoFragment"
         android:name="com.example.lettuceapp.ui.learning.VideoFragment"
         android:label="@string/menu_material"
