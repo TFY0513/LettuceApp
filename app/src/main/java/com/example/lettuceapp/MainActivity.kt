@@ -12,14 +12,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.lettuceapp.databinding.ActivityMainBinding
 import com.example.lettuceapp.databinding.FragmentMaterialBinding
 import com.example.lettuceapp.ui.learning.LearningFragment
 import com.example.lettuceapp.ui.learning.LearningViewModel
-import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
