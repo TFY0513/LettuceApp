@@ -59,6 +59,16 @@
     <fragment
         android:id="@+id/videoFragment"
         android:name="com.example.lettuceapp.ui.learning.VideoFragment"
-        android:label="fragment_video"
-        tools:layout="@layout/fragment_video" />
+        android:label="@string/menu_material"
+        tools:layout="@layout/fragment_video">
+        <action
+            android:id="@+id/action_videoFragment_to_viewVideoFragment"
+            app:destination="@id/viewVideoFragment"
+            app:popUpTo="@id/videoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewVideoFragment"
+        android:name="com.example.lettuceapp.ui.learning.ViewVideoFragment"
+        android:label="@string/disp_video"
+        tools:layout="@layout/fragment_view_video" />
 </navigation>
