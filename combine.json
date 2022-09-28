@@ -1,0 +1,108 @@
+{
+  "article":{
+    "article_1":{
+      "title":"Open education resources offer many benefits: how to remove obstacles",
+      "author":"Vollan Okoth Ochieng",
+      "summary":"Open education resource platforms improve access to education and are globalising education on a scale never seen before.",
+      "article_url":"https://theconversation.com/open-education-resources-offer-many-benefits-how-to-remove-obstacles-171687",
+      "image_preview_url":"https://images.theconversation.com/files/434712/original/file-20211130-21-13hzv65.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=668&h=324&fit=crop",
+      "timestamp":1641398400
+    },
+    "article_2":{
+      "title":"Africa’s agenda for children: progress, but still a long way to go",
+      "author":"Rongedzayi Fambasayi",
+      "summary":"Policy changes and advocacy efforts have lead to improvements in the protection and wellbeing of children on the continent. But a lot more still needs to be done.",
+      "article_url":"https://theconversation.com/africas-agenda-for-children-progress-but-still-a-long-way-to-go-162677",
+      "image_preview_url":"https://images.theconversation.com/files/406534/original/file-20210615-3862-sjkvg1.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=240&h=240&fit=crop",
+      "timestamp":1623772800
+    },
+    "article_3":{
+      "title":"How blockchain could help the world meet the UN’s global goals in higher education",
+      "author":"Rory McGreal",
+      "summary":"Open-educational resources are critical for increasing global learners’ access to education during COVID-19 and beyond. Blockchain technology can address concerns about plagiarism in resources.",
+      "article_url":"https://theconversation.com/how-blockchain-could-help-the-world-meet-the-uns-global-goals-in-higher-education-152885",
+      "image_preview_url":"https://images.theconversation.com/files/379363/original/file-20210118-15-1kz2tvb.jpg?ixlib=rb-1.1.0&rect=794%2C342%2C4124%2C4124&q=45&auto=format&w=240&h=240&fit=crop",
+      "timestamp":1611072000
+    },
+    "article_4":{
+      "title":"COVID-19 exposes the underbelly of South Africa’s education system",
+      "author":"Zahraa McDonald",
+      "summary":"The inequalities in South Africa’s education are systematically being exposed at a scale not experienced before.",
+      "article_url":"https://theconversation.com/covid-19-exposes-the-underbelly-of-south-africas-education-system-138563",
+      "image_preview_url":"https://images.theconversation.com/files/336443/original/file-20200520-152327-3ll0v6.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=240&h=240&fit=crop",
+      "timestamp":1626019200
+    }
+  },
+ "quiz": {
+    "question_1": {
+      "answer": "<script>",
+      "option1": "<script>",
+      "option2": "<scripting>",
+      "option3": "<javascript>",
+      "question": "Inside which HTML element do we put the JavaScript?"
+    },
+    "question_10": {
+      "answer": "while (i <= 10)",
+      "option1": "while i = 1 to 10",
+      "option2": "while (i <= 10; i++)",
+      "option3": "while (i <= 10)",
+      "question": "How does a WHILE loop start?"
+    },
+    "question_2": {
+      "answer": "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
+      "option1": "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
+      "option2": "document.getElement(\"p\").innerHTML = \"Hello World!\";",
+      "option3": "document.getElementByName(\"p\").innerHTML = \"Hello World!\";",
+      "question": "What is the correct JavaScript syntax to change the content of the HTML element below?  <p id=\"demo\">This is a demonstration.</p>"
+    },
+    "question_3": {
+      "answer": "Both the <head> section and the <body> section are correct",
+      "option1": "The <head> section",
+      "option2": "Both the <head> section and the <body> section are correct",
+      "option3": "The <body> section",
+      "question": "Where is the correct place to insert a JavaScript?"
+    },
+    "question_4": {
+      "answer": "<script src=\"xxx.js\">",
+      "option1": "<script href=\"xxx.js\">",
+      "option2": "<script name=\"xxx.js\">",
+      "option3": "<script src=\"xxx.js\">",
+      "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?"
+    },
+    "question_5": {
+      "answer": "alert(\"Hello World\"); ",
+      "option1": "msg(\"Hello World\");",
+      "option2": "alert(\"Hello World\"); ",
+      "option3": "alertBox(\"Hello World\");",
+      "question": "How do you write \"Hello World\" in an alert box?"
+    },
+    "question_6": {
+      "answer": "function myFunction()",
+      "option1": "function myFunction()",
+      "option2": "function:myFunction()",
+      "option3": "function = myFunction()",
+      "question": "How do you create a function in JavaScript?"
+    },
+    "question_7": {
+      "answer": "myFunction()",
+      "option1": "call function myFunction()",
+      "option2": "myFunction()",
+      "option3": "call myFunction()",
+      "question": "How do you call a function named \"myFunction\"?"
+    },
+    "question_8": {
+      "answer": "if (i == 5)",
+      "option1": "if (i == 5)",
+      "option2": "if i = 5",
+      "option3": "if i == 5 then",
+      "question": "How to write an IF statement in JavaScript?"
+    },
+    "question_9": {
+      "answer": "if (i != 5)",
+      "option1": "if (i != 5)",
+      "option2": "if i <> 5",
+      "option3": "if (i <> 5)",
+      "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?"
+    }
+  }
+}
