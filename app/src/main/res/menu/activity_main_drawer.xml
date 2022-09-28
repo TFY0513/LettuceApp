@@ -18,7 +18,7 @@
             android:icon="@drawable/ic_baseline_pie_chart_outline_24"
             android:title="@string/menu_statistics" />
         <item
-            android:id="@+id/surveyFragment"
+            android:id="@+id/surveyFragment2"
             android:icon="@drawable/ic_baseline_list_alt_24"
             android:title="@string/survey_label" />
         <item

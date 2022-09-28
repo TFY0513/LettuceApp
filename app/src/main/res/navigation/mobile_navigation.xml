@@ -57,8 +57,9 @@
         android:label="@string/menu_level"
         tools:layout="@layout/fragment_difficulty" >
         <action
-            android:id="@+id/action_difficultyFragment_to_questionFragment"
-            app:destination="@id/questionFragment" />
+            android:id="@+id/action_difficultyFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:popUpTo="@id/materialFragment" />
     </fragment>
     <fragment
         android:id="@+id/surveyFragment2"
@@ -81,8 +82,8 @@
         android:label="@string/disp_video"
         tools:layout="@layout/fragment_view_video" />
     <fragment
-        android:id="@+id/questionFragment"
-        android:name="com.example.lettuceapp.QuestionFragment"
-        android:label="@string/menu_question"
-        tools:layout="@layout/fragment_question" />
+        android:id="@+id/quizFragment"
+        android:name="com.example.lettuceapp.ui.learning.QuizFragment"
+        android:label="@string/menu_quiz"
+        tools:layout="@layout/fragment_quiz" />
 </navigation>

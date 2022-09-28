@@ -7,6 +7,12 @@
     <color name="card_ches_mint">#00cbb7</color>
     <color name="card_acct_blue">#3995ff</color>
 
+    <color name="quiz_box_start">#a4ffff</color>
+    <color name="quiz_box_center">#6DD5FA</color>
+    <color name="quiz_box_end">#2980B9</color>
+    <color name="quiz_box_quesnum">#007596</color>
+    <color name="quiz_box_answer">#768FC9</color>
+
     <color name="card_video_green">#00C808</color>
     <color name="card_quiz_lightblue">#18B5AB</color>
     <color name="card_notes_darkgreen">#74AA00</color>

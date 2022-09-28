@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "39159102592",
-    "firebase_url": "https://foodive-fac58-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "foodive-fac58",
-    "storage_bucket": "foodive-fac58.appspot.com"
+    "project_number": "756357501422",
+    "firebase_url": "https://lettuceapp-7e1ca-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "lettuceapp-7e1ca",
+    "storage_bucket": "lettuceapp-7e1ca.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:39159102592:android:a300c11b43a1407f97fa65",
+        "mobilesdk_app_id": "1:756357501422:android:6f096720f05fafdcb5feff",
         "android_client_info": {
           "package_name": "com.example.lettuceapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "39159102592-t4tkp3ajvk18674f1mb0ur98kfra24u7.apps.googleusercontent.com",
+          "client_id": "756357501422-obdhol5nupsn458t65iu9id8q96tdnqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lettuceapp",
+            "certificate_hash": "6f84efc30b5dafd1b9224f2f4e8c519c03a3571a"
+          }
+        },
+        {
+          "client_id": "756357501422-c7p103bljehc8p5r60h39c13pl34oj73.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDfQcD1b9XfvYL1OmHTBqzyNHCEl7HgZVM"
+          "current_key": "AIzaSyAoEWDjv28WXfeMYyLnjdpwSyj7DYY3xOM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "39159102592-t4tkp3ajvk18674f1mb0ur98kfra24u7.apps.googleusercontent.com",
+              "client_id": "756357501422-c7p103bljehc8p5r60h39c13pl34oj73.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

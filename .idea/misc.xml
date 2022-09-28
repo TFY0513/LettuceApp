@@ -14,8 +14,13 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/ic_menu_camera.xml" value="0.331" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.3125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.3125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/quiz_background.xml" value="0.331" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/quiz_box.xml" value="0.331" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/quiz_box_answer.xml" value="0.331" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/quiz_quesnum.xml" value="0.331" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/side_nav_bar.xml" value="0.3125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/font/amaranth.xml" value="0.215625" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/activity_article_web_view.xml" value="0.3625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/activity_launch_splash.xml" value="0.19444444444444445" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/activity_learning_material.xml" value="0.3625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/activity_main.xml" value="0.35833333333333334" />
@@ -30,13 +35,16 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_level.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_material.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_question.xml" value="0.3625" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_quiz.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_slideshow.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_statistics.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_survey.xml" value="0.3625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_user.xml" value="0.3625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_video.xml" value="0.3625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/fragment_view_video.xml" value="0.3484375" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/nav_header_main.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/new_app_bar.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/layout/quiz_answer_box.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/LettuceApp/app/src/main/res/menu/main.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/LettuceApp/app/src/main/res/drawable/side_nav_bar.xml" value="0.2595" />
@@ -53,5 +61,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3625" />
+      </ProjectState>
+    </option>
   </component>
 </project>

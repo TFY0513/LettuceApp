@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.articleFragment, R.id.learningFragment, R.id.userFragment,R.id.statisticsFragment, R.id.surveyFragment
+                R.id.articleFragment, R.id.learningFragment, R.id.userFragment,R.id.statisticsFragment, R.id.surveyFragment2
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -63,16 +63,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-//
-//    fun passData(course: String) {
-//        val bundle = Bundle()
-//        bundle.putString("course", course)
-//        val transaction = this.supportFragmentManager.beginTransaction()
-//        val fragmentTwo = Fragment
-//        fragmentTwo.arguments = bundle
-//        transaction.replace(R.id.relativeLayout, fragmentTwo)
-//        transaction.addToBackStack(null)
-//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-//        transaction.commit()
-//    }
+
 }

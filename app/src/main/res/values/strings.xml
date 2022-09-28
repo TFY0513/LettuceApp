@@ -12,12 +12,12 @@
     <string name="menu_material">Material</string>
     <string name="menu_user">User</string>
     <string name="menu_statistics">Statistics</string>
-
     <string name="menu_level">Difficulty</string>
-    <string name="menu_question">Question</string>
-
+    <string name="menu_quiz">Quiz</string>
 
     //Values for learning module
+
+    //course
     <string name="card_js">JavaScript</string>
     <string name="card_js_desc">Empower you with the skills to design client-side and platform-independent solutions</string>
     <string name="card_chemistry">Chemistry</string>
@@ -25,23 +25,22 @@
     <string name="card_acct">Accouting</string>
     <string name="card_acct_desc">Focuses on the process of auditing financial statements</string>
 
+    //material
     <string name="card_video">Video</string>
-
     <string name="card_quiz">Quiz</string>
-
     <string name="card_notes">Notes</string>
 
-
+    //quiz
     <string name="difficulty">Select quiz level</string>
-
     <string name="video_desc">Various video</string>
     <string name="quiz_desc">Form of games</string>
     <string name="notes_desc">Documentation</string>
-
     <string name="easy_level">Beginner</string>
     <string name="normal_level">Intermediate</string>
     <string name="hard_level">Professional</string>
-
+    <string name="difficulty_level">Difficulty:</string>
+    <string name="next_ques">Next</string>
+    //video
     <string name="video">Videos</string>
 
     <string name="js_videoTitle1">Learn JAVASCRIPT in just 5 MINUTES (2020)</string>
@@ -66,7 +65,6 @@
     <string name="easy_level_desc">- 10 question\n- 3 answer each question</string>
     <string name="normal_level_desc">- 20 question\n- 3/4 answer each question</string>
     <string name="hard_level_desc">- 30 question\n- 4 answer each question</string>
-
 
 
     <!-- TODO: Remove or change this placeholder text -->
