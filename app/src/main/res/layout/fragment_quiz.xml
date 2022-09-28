@@ -17,6 +17,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:textSize="18dp"
                 android:id="@+id/textViewLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,17 +41,24 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:textSize="18dp"
+                android:paddingTop="30dp"
+                android:paddingLeft="10dp"
                 android:id="@+id/textViewQuestion"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="100dp"
                 android:background="@drawable/quiz_box"
                 android:text="TextView"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/white"
                 android:id="@+id/textViewAnswer1"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
@@ -63,6 +71,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewQuestion" />
 
             <TextView
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/white"
                 android:id="@+id/textViewAnswer2"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
@@ -75,6 +86,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewAnswer1" />
 
             <TextView
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/white"
                 android:id="@+id/textViewAnswer3"
                 android:layout_width="330dp"
                 android:layout_height="50dp"
@@ -86,8 +100,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewAnswer2" />
 
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
@@ -107,6 +139,24 @@
             android:background="@drawable/quiz_quesnum"
             android:orientation="vertical"
             android:padding="5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textSize="18dp"
+                    android:id="@+id/textViewQuesNum"
+
+                  android:gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </RelativeLayout>
 

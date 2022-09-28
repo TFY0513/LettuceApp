@@ -21,6 +21,8 @@
     <color name="normal_level">#ff842c</color>
     <color name="hard_level">#FF0101</color>
 
+    <color name="wrong_ans">#ff4a3d</color>
+    <color name="correct_ans">#66ff75</color>
 
 
     <color name="orange_app">#F9A271</color>

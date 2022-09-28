@@ -39,7 +39,7 @@
     <string name="normal_level">Intermediate</string>
     <string name="hard_level">Professional</string>
     <string name="difficulty_level">Difficulty:</string>
-    <string name="next_ques">Next</string>
+    <string name="next_ques">Skip</string>
     //video
     <string name="video">Videos</string>
 

@@ -5,9 +5,10 @@ import java.sql.Timestamp
 
 
 @IgnoreExtraProperties
-data class QuizData(val option: List<String>? = null
+data class QuizData(val answer: String? = null,
+                     val options: List<String>? = null
                     ,val question: String? = null
-                    ,val answer: String? = null
+
 ) {
 }
 
