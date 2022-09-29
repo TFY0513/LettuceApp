@@ -77,7 +77,8 @@
         android:rowCount="3">
 
         <androidx.cardview.widget.CardView
-
+android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/card_js"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -130,6 +131,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/card_chem"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -178,7 +181,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/card_acct"
             android:layout_width="wrap_content"
             android:layout_height="0dp"

@@ -67,6 +67,9 @@ class SurveyCategoryOneFragment : Fragment() {
                 override fun onCallBack(title: String, value: List<Survey>) {
                     binding.layoutCategory.recycleViewSurveyCard1.adapter = SurveyAdapter(value)
                 }
+
+                //Not used
+                override fun onCallBack(responded: Boolean) {}
             })
         }
 

@@ -10,12 +10,6 @@ import com.example.lettuceapp.R
 
 class AssessmentFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = AssessmentFragment()
-    }
-
-    private lateinit var viewModel: AssessmentViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +19,6 @@ class AssessmentFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AssessmentViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

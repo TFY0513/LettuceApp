@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.learning.QuizResultFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/quiz_result"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <GridLayout
+            android:id="@+id/gridLayout2"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:layout_marginTop="64dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewResult"
+            tools:layout_editor_absoluteX="-57dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+
+                app:cardCornerRadius="18dp"
+                app:cardElevation="18dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/buttonRedo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="32dp"
+                        android:text="@string/btn_redo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewSkipQues"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_skipQues"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewWrongQues" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.4" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        android:id="@+id/textViewUserIDGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewQuizCourseGet" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:id="@+id/textViewUserID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_userID"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewQuizCourse" />
+
+                    <TextView
+
+                        android:id="@+id/textViewSkipQuesGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewWrongQuesGet" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        android:id="@+id/textViewMarkGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewSkipQuesGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewMark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_mark"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewSkipQues" />
+
+                    <TextView
+
+                        android:id="@+id/textViewQuizCourse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_course"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+
+                        android:id="@+id/textViewDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_date_taken"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewUserID" />
+
+                    <TextView
+
+                        android:id="@+id/textViewQuizLvl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_level"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+
+                    <TextView
+
+                        android:id="@+id/textViewTotalQues"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_totalQues"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewQuizLvl" />
+
+                    <TextView
+
+                        android:id="@+id/textViewCorrectQues"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_correctQues"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTotalQues" />
+
+                    <TextView
+
+                        android:id="@+id/textViewWrongQues"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_wrongQues"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCorrectQues" />
+
+                    <TextView
+
+                        android:id="@+id/textViewQuizCourseGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="32dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+
+                        android:id="@+id/textViewDateGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewUserIDGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewCorrectQuesGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTotalQuesGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewWrongQuesGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCorrectQuesGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewTotalQuesGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewQuizLvlGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewQuizLvlGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDateGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewQuizResultGet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/black"
+
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMarkGet" />
+
+                    <TextView
+
+                        android:id="@+id/textViewQuizResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/quiz_passOrFail"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMark" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

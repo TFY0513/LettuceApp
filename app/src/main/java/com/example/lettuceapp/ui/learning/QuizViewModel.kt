@@ -7,7 +7,7 @@ import androidx.lifecycle.*
 import com.example.lettuceapp.firebase.QuizCallBack
 import com.example.lettuceapp.model.Article
 import com.example.lettuceapp.model.Quiz
-import com.example.lettuceapp.repository.QuizRepo
+
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase

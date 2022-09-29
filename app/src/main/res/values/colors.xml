@@ -16,6 +16,8 @@
     <color name="hard_level">#FF0101</color>
 
 
+    <color name="unavailable">#b0b0b0</color>
+
 
     <color name="orange_app">#F9A271</color>
     <color name="purple_200">#FFBB86FC</color>
