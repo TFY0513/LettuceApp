@@ -67,5 +67,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-
+  <!--for login and register-->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="logo">Logo</string>
+    <string name="login">Login</string>
+    <string name="loginRegister">Still doesn\'t have a account yet? Create an account here</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="textViewRegisterLogin">already have an account? Login Here</string>
+    <string name="login_here">login here</string>
+    <string name="firstname">FirstName</string>
+    <string name="lastname">LastName</string>
 </resources>
