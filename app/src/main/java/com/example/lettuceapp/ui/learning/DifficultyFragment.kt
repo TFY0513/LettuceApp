@@ -30,13 +30,14 @@ class DifficultyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.easyQuiz.setOnClickListener{quizTime() }
+        binding.easyQuiz.setOnClickListener{quizTime("easy") }
     }
 
 
-    fun quizTime(){
+    fun quizTime(difficulty: String){
         findNavController().navigate(R.id.action_difficultyFragment_to_quizFragment, Bundle().apply {
             putString("course", requireArguments().getString("course").toString())
+            putString("difficulty", difficulty)
         })
     }
 

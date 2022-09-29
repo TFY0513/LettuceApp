@@ -85,5 +85,20 @@
         android:id="@+id/quizFragment"
         android:name="com.example.lettuceapp.ui.learning.QuizFragment"
         android:label="@string/menu_quiz"
-        tools:layout="@layout/fragment_quiz" />
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_quizResultFragment"
+            app:destination="@id/quizResultFragment"
+            app:popUpTo="@id/learningFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizResultFragment"
+        android:name="com.example.lettuceapp.ui.learning.QuizResultFragment"
+        android:label="@string/menu_result"
+        tools:layout="@layout/fragment_quiz_result">
+        <action
+            android:id="@+id/action_quizResultFragment_to_learningFragment"
+            app:destination="@id/learningFragment" />
+    </fragment>
 </navigation>

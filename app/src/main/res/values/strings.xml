@@ -14,7 +14,7 @@
     <string name="menu_statistics">Statistics</string>
     <string name="menu_level">Difficulty</string>
     <string name="menu_quiz">Quiz</string>
-
+    <string name="menu_result">Result</string>
     //Values for learning module
 
     //course
@@ -40,6 +40,21 @@
     <string name="hard_level">Professional</string>
     <string name="difficulty_level">Difficulty:</string>
     <string name="next_ques">Skip</string>
+    <string name="quiz_result">Quiz Result</string>
+    <string name="complete_msg">You have completed the quiz</string>
+
+    //quiz result
+    <string name="quiz_course">Course:</string>
+    <string name="quiz_date_taken">Date conducted:</string>
+    <string name="quiz_level">Level:</string>
+    <string name="quiz_correctQues">Correct Question:</string>
+    <string name="quiz_wrongQues">Wrong Question:</string>
+    <string name="quiz_totalQues">Total Question:</string>
+    <string name="quiz_mark">Mark:</string>
+    <string name="quiz_passOrFail">Result:</string>
+    <string name="btn_redo">Retake</string>
+    <string name="quiz_skipQues">Skip Question:</string>
+    <string name="quiz_userID">User ID:</string>
     //video
     <string name="video">Videos</string>
 

@@ -1,5 +1,7 @@
 package com.example.lettuceapp.ui.learning
 
+import android.app.DownloadManager
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+
 import androidx.fragment.app.FragmentResultListener
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
@@ -77,18 +81,36 @@ class MaterialFragment : Fragment() {
 
     fun notes(){
         var url=""
+        var name=""
         if(requireArguments().getString("course").toString()== "js"){
-            url = "https://www.w3schools.com/js/"
+            url = "https://matfuvit.github.io/UVIT/predavanja/literatura/TutorialsPoint%20JavaScript.pdf"
+            name="JavaScript TutorialsPoint"
         }
         else if(requireArguments().getString("course").toString() == "chem"){
-            url = "https://www.grandinetti.org/general-chemistry-tutorial"
+            url = "https://openedgroup.org/books/Chemistry.pdf"
+            name="Introduction to Chemistry"
         }
         else{
-            url = "https://www.guru99.com/accounting.html"
+            url = "https://www.accountingcoach.com/pro-samples/accounting-basics-explanation.pdf"
+            name="Accounting Basics"
         }
+        var request = DownloadManager.Request(Uri.parse(url))
+            .setTitle(name)
+            .setDescription(name+" downloading")
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+            .setAllowedOverMetered(true)
 
-        val uri = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, uri)
-        startActivity(intent)
+        var dm = this.context?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        dm.enqueue(request)
+
+        Toast.makeText(requireContext(),"The file is downloading",Toast.LENGTH_SHORT).show()
+
+
+
+
+//
+//        val uri = Uri.parse(url)
+//        val intent = Intent(Intent.ACTION_VIEW, uri)
+//        startActivity(intent)
     }
 }

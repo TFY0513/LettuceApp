@@ -24,6 +24,8 @@
     <color name="wrong_ans">#ff4a3d</color>
     <color name="correct_ans">#66ff75</color>
 
+    <color name="unavailable">#b0b0b0</color>
+
 
     <color name="orange_app">#F9A271</color>
     <color name="purple_200">#FFBB86FC</color>
