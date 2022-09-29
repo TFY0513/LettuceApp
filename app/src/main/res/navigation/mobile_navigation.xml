@@ -65,7 +65,11 @@
         android:id="@+id/surveyFragment2"
         android:name="com.example.lettuceapp.ui.survey.SurveyFragment"
         android:label="@string/survey_label"
-        tools:layout="@layout/fragment_survey" />
+        tools:layout="@layout/fragment_survey" >
+        <action
+            android:id="@+id/action_surveyFragment2_to_surveyQuestionnaires"
+            app:destination="@id/surveyQuestionnaires" />
+    </fragment>
     <fragment
         android:id="@+id/videoFragment"
         android:name="com.example.lettuceapp.ui.learning.VideoFragment"
@@ -100,5 +104,26 @@
         <action
             android:id="@+id/action_quizResultFragment_to_learningFragment"
             app:destination="@id/learningFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/surveyRecordedFragment"
+        android:name="com.example.lettuceapp.ui.survey.SurveyRecordedFragment"
+        android:label="@string/survey_submitted_header"
+        tools:layout="@layout/fragment_survey_recorded" >
+        <action
+            android:id="@+id/action_surveyRecordedFragment_to_surveyFragment2"
+            app:destination="@id/surveyFragment2" />
+        <action
+            android:id="@+id/action_surveyRecordedFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/surveyQuestionnaires"
+        android:name="com.example.lettuceapp.ui.survey.SurveyQuestionnaires"
+        android:label="@string/survey_label">
+        <action
+            android:id="@+id/action_surveyQuestionnaires_to_surveyRecordedFragment"
+            app:destination="@id/surveyRecordedFragment" />
     </fragment>
 </navigation>

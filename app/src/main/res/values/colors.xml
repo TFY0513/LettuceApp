@@ -37,4 +37,14 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="text_shadow">#7F000000</color>
+
+    <color name="tab_background_selected">#ff842c</color>
+    <color name="tab_background_unselected">#F9A271</color>
+
+    <color name="tab_background_selected_dark">#FF6200EE</color>
+    <color name="tab_background_unselected_dark">#FFBB86FC</color>
+
+    <color name="red_pink">#ff817d</color>
+    <color name="white_80">#80ffffff</color>
+    <color name="gray">#4D4D4D</color>
 </resources>

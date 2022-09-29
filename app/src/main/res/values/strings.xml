@@ -98,11 +98,59 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="back_home">Back to home</string>
+    <string name="submit">Submit</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="survey_label">Survey</string>
+
     <string name="article_load_failed">Failed to load article\nDue to no internet connection\nKindly check if you are connected</string>
     <string name="check_connection">Check connection</string>
+
+    <!-- Survey - START -->
+    <string name="survey_label">Survey</string>
+    <string name="article_no_result">The article list is empty</string>
+    <string name="question_label">Question</string>
+    <string name="survey_strong_disagree">Strongly disagree</string>
+    <string name="survey_strong_agree">Strongly agree</string>
+    <string name="survey_answer_required">answer is required</string>
+    <string name="survey_submitted">Survey response had been recorded.</string>
+    <string name="survey_recorded_redundancy">You had responded to the survey. </string>
+    <string name="survey_submitted_header">Survey had been recorded</string>
+    <string name="survey_submitted_appr">Thank you, your value response helps us \nto develop better environment for education</string>
+    <string name="survey_start">We\'re conducting research on the critical issue proposed by United Nation, which is one of the 17 Sustainable Development Goals for quality education. This will help us to collect data for facilitate improvements for educational quality among different areas and proposed with solution by authorities. The survey should only take 15 minutes, and your responses are completely anonymous.</string>
+    <string name="survey_start_line_1">You can only take the survey once. Questions marked with an asterisk (*) are required.</string>
+    <string name="survey_start_line_2">If you have any questions about the survey, please email us: <u>support@lettuceapp.com.my</u></string>
+    <string name="survey_start_line_3">We really appreciate your input!</string>
+    <string name="begin">Begin</string>
+    <string name="reference_start">"Credit to the research team on providing questionnaire at "</string>
+    <string name="reference_link">here</string>
+    <string name="email">support@lettuceapp.com.my</string>
+    <string name="survey_support_subject">Enquiry on Survey related issue</string>
+    <string name="survey_section_instruction">Please indicate your level of agreement with the statements below. Please choose the one most appropriate response to each question.</string>
+    <string name="survey_section_one">Section 1</string>
+    <string name="survey_section_one_name">Self-managed learning</string>
+    <string name="survey_section_two">Section 2</string>
+    <string name="survey_section_two_name">Computer literacy</string>
+    <string name="survey_section_three">Section 3</string>
+    <string name="survey_section_three_name">Cooperative learning</string>
+    <!-- Survey - END -->
+
+    <!-- Assessment - START -->
+    <string name="assessment_date_default">Date</string>
+    <string name="assessment_title_default">Title</string>
+    <string name="assessment_description_default">Description</string>
+    <string name="assessment_duration_default">000</string>
+    <string name="assessment_duration_unit_default">mins</string>
+    <string name="assessment_question_default">0</string>
+    <string name="assessment_duration_label">DURATION</string>
+    <string name="assessment_question_label">QUESTION</string>
+    <string name="assessment_take_test_label">TAKE TEST</string>
+
+    <string name="assessment_section_one_name">Active</string>
+    <string name="assessment_section_two_name">Upcoming</string>
+    <string name="assessment_section_three_name">Completed</string>
+    <!-- Assessment - END  -->
+
 
 </resources>
