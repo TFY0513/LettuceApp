@@ -1,11 +1,11 @@
-package com.example.heechintong
+package com.example.lettuceapp.ui.registerlogin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import com.example.heechintong.databinding.ActivityLoginBinding
+//import com.example.heechintong.databinding.ActivityLoginBinding
 import com.example.lettuceapp.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email,password)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, dashboard::class.java)
+                    //val intent = Intent(this, dashboard::class.java)
                     startActivity(intent)
                 }
                 .addOnFailureListener {

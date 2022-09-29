@@ -1,4 +1,4 @@
-package com.example.heechintong
+package com.example.lettuceapp.ui.registerlogin
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -9,7 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.heechintong.databinding.ActivityRegisterBinding
+import com.example.lettuceapp.R
+import com.example.lettuceapp.databinding.ActivityRegisterBinding
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
