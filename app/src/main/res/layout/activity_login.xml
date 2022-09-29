@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_color"
-    tools:context=".ui.registerlogin.LoginActivity">
+    tools:context="ui.registerlogin.LoginActivity">
 
 
     <EditText
-        android:id="@+id/editTextRegisterEmail"
+        android:id="@+id/editTextLoginEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -26,7 +26,7 @@
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <EditText
-        android:id="@+id/editTextRegisterUserPass"
+        android:id="@+id/editTextLoginUserPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -39,7 +39,7 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextRegisterEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginEmail"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <ImageView
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextRegisterUserPass" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginUserPass" />
 
     <TextView
         android:id="@+id/textViewLoginRegister"
@@ -73,6 +73,6 @@
         android:textColor="#795548"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextRegisterUserPass" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginUserPass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

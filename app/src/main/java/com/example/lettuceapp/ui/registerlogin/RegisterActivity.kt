@@ -1,19 +1,20 @@
-package com.example.lettuceapp.ui.registerlogin
+package com.example.heechintong
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.lettuceapp.R
-import com.example.lettuceapp.databinding.ActivityRegisterBinding
-import com.google.firebase.FirebaseApp
+import com.example.heechintong.databinding.ActivityRegisterBinding
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -24,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        FirebaseApp.initializeApp(this);
+
         auth = Firebase.auth
 
         val loginText: TextView = findViewById(R.id.textViewRegisterLogin)
@@ -46,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
         val email = binding.editTextRegisterEmail
         val password = binding.editTextPassword
 
+
         val inputEmail = email.text.toString()
         val inputPassword = password.text.toString()
 
@@ -55,6 +57,7 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         } else {
+            Toast.makeText(this, "Hello here", Toast.LENGTH_SHORT).show()
             auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -73,8 +76,13 @@ class RegisterActivity : AppCompatActivity() {
                         //updateUI(null)
                     }
                 }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Error: " + it.message, Toast.LENGTH_SHORT).show()
+                }
         }
+
 
     }
 
 }
+

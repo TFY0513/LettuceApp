@@ -14,8 +14,10 @@
         android:theme="@style/Theme.LettuceApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.learning.LearningMaterial"
-            android:exported="false" />
+            android:name=".ui.registerlogin.RegisterActivity"
+            android:exported="true"
+                       android:theme="@style/Theme.LettuceApp.NoActionBar">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
