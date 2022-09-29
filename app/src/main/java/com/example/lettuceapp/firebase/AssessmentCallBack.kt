@@ -1,4 +1,7 @@
 package com.example.lettuceapp.firebase
 
-class AssessmentCallBack {
+import com.example.lettuceapp.model.Assessment
+
+interface AssessmentCallBack {
+    fun onCallBack(count: Int, assessmentList: List<Assessment>)
 }
