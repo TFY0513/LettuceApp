@@ -1,11 +1,10 @@
 package com.example.lettuceapp.ui.survey
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.example.lettuceapp.R
@@ -60,8 +59,9 @@ class SurveyQuestionnaires : Fragment() {
                 //Insert into database
 
                 //Toast to prompt successful update
-                Toast.makeText(activity?.applicationContext,
-                    getString(R.string.survey_submitted), Toast.LENGTH_SHORT).show()
+//                Toast.makeText(activity?.applicationContext,
+//                    getString(R.string.survey_submitted), Toast.LENGTH_SHORT).show()
+
                 findNavController().navigate(R.id.action_surveyQuestionnaires_to_surveyRecordedFragment)
                 true
             }
@@ -69,15 +69,26 @@ class SurveyQuestionnaires : Fragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        if(binding.pager.isEmpty()){
+            tabPagerAdapter = TabPagerAdapter(childFragmentManager)
+            viewPager = binding.pager
+            /**
+             * How to stop refreshing viewpager content?
+             * https://stackoverflow.com/questions/29610004/how-to-stop-refreshing-viewpager-content
+             */
+            viewPager.offscreenPageLimit = 3
+            tabPagerAdapter.addFragment(SurveyCategoryOneFragment(), getString(R.string.survey_section_one_name))
+            tabPagerAdapter.addFragment(SurveyCategorySecondFragment(), getString(R.string.survey_section_two_name))
+            tabPagerAdapter.addFragment(SurveyCategoryThirdFragment(), getString(R.string.survey_section_three_name))
+            viewPager.adapter = tabPagerAdapter
+            binding.tbLayout.setupWithViewPager(viewPager)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        tabPagerAdapter = TabPagerAdapter(childFragmentManager)
-        viewPager = binding.pager
-        tabPagerAdapter.addFragment(SurveyCategoryOneFragment(), getString(R.string.survey_section_one_name))
-        tabPagerAdapter.addFragment(SurveyCategorySecondFragment(), getString(R.string.survey_section_two_name))
-        tabPagerAdapter.addFragment(SurveyCategoryThirdFragment(), getString(R.string.survey_section_three_name))
-        viewPager.adapter = tabPagerAdapter
-        binding.tbLayout.setupWithViewPager(viewPager)
     }
 }

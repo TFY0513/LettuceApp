@@ -30,6 +30,7 @@ class SurveyCategoryOneFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -42,16 +43,17 @@ class SurveyCategoryOneFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        loadSurvey()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.layoutCategory.textViewSectionTitle.text = getString(R.string.survey_section_one)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        loadSurvey()
+        binding.layoutCategory.recycleViewSurveyCard1.preserveFocusAfterLayout = true
     }
 
     private fun loadSurvey(){

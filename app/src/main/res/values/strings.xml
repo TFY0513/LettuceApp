@@ -121,4 +121,21 @@
     <string name="survey_section_three_name">Cooperative learning</string>
     <!-- Survey - END -->
 
+    <!-- Assessment - START -->
+    <string name="assessment_date_default">Date</string>
+    <string name="assessment_title_default">Title</string>
+    <string name="assessment_description_default">Description</string>
+    <string name="assessment_duration_default">000</string>
+    <string name="assessment_duration_unit_default">mins</string>
+    <string name="assessment_question_default">0</string>
+    <string name="assessment_duration_label">DURATION</string>
+    <string name="assessment_question_label">QUESTION</string>
+    <string name="assessment_take_test_label">TAKE TEST</string>
+
+    <string name="assessment_section_one_name">Active</string>
+    <string name="assessment_section_two_name">Upcoming</string>
+    <string name="assessment_section_three_name">Completed</string>
+    <!-- Assessment - END  -->
+
+
 </resources>

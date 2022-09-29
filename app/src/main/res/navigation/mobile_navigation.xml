@@ -94,7 +94,14 @@
         android:id="@+id/surveyRecordedFragment"
         android:name="com.example.lettuceapp.ui.survey.SurveyRecordedFragment"
         android:label="@string/survey_submitted_header"
-        tools:layout="@layout/fragment_survey_recorded" />
+        tools:layout="@layout/fragment_survey_recorded" >
+        <action
+            android:id="@+id/action_surveyRecordedFragment_to_surveyFragment2"
+            app:destination="@id/surveyFragment2" />
+        <action
+            android:id="@+id/action_surveyRecordedFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/surveyQuestionnaires"
         android:name="com.example.lettuceapp.ui.survey.SurveyQuestionnaires"

@@ -9,7 +9,7 @@
     android:background="@drawable/survey_education_background">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewBaseSurvey"
+        android:id="@+id/cardViewBaseAssessment"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginStart="20dp"

@@ -90,11 +90,12 @@ class SurveyFragment : Fragment() {
             val database = FirebaseDatabase.getInstance()
             val databaseReference =  database.getReference("survey")
 
-            databaseReference.child(category).get().addOnCompleteListener {
+            databaseReference.child("questionnaire").child(category).get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     val surveys = it.result.children.mapNotNull { doc ->
                         doc.getValue(Survey::class.java)
                     }
+//                    Toast.makeText(context, "Result on " + category + " is " + it.result.children.count().toString(), Toast.LENGTH_SHORT).show()
                     callback.onCallBack(it.result.key!!, surveys)
                 } else {
                     Toast.makeText(context, it.exception?.message.toString(), Toast.LENGTH_LONG).show()
