@@ -64,4 +64,6 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.4.0')
 
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    implementation 'com.github.cdflynn:checkview:v1.2'
 }

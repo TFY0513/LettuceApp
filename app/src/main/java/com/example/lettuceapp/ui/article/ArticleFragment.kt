@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -72,6 +73,8 @@ class ArticleFragment : Fragment() {
         pullToRefresh.setOnRefreshListener {
             loadArticle()
             pullToRefresh.isRefreshing = false
+            Toast.makeText(activity?.applicationContext,
+                "Article reloaded", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -84,6 +87,9 @@ class ArticleFragment : Fragment() {
         if(isConnected){
             articleViewModel.loadArticleList(object: ArticleCallBack {
                 override fun onCallBack(value: List<Article>) {
+                    if(value.isEmpty()){
+                        binding.textViewNoResult.visibility = View.VISIBLE
+                    }
                     binding.recycleViewArticle.adapter = ArticleAdapter(value)
                 }
             })
@@ -95,9 +101,9 @@ class ArticleFragment : Fragment() {
             Log.w(TAG, "Device not connected to network")
             binding.textViewWarnNoInternet.visibility = View.VISIBLE
             binding.imageViewWifiDiabled.visibility = View.VISIBLE
-            binding.recycleViewArticle.visibility = View.INVISIBLE
             binding.buttonCheckConnection.visibility = View.VISIBLE
-
+            binding.recycleViewArticle.visibility = View.INVISIBLE
+            binding.textViewNoResult.visibility = View.INVISIBLE
         }
 
         binding.recycleViewArticle.layoutManager = linearLayoutManager
