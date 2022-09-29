@@ -150,6 +150,7 @@
     <string name="assessment_section_one_name">Active</string>
     <string name="assessment_section_two_name">Upcoming</string>
     <string name="assessment_section_three_name">Completed</string>
+    <string name="assessment_label">Assessment</string>
     <!-- Assessment - END  -->
 
 

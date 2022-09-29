@@ -47,20 +47,22 @@ class AssessmentTabFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        if(binding.pager.isEmpty()){
-            tabPagerAdapter = TabPagerAdapter(childFragmentManager)
-            viewPager = binding.pager
-            /**
-             * How to stop refreshing viewpager content?
-             * https://stackoverflow.com/questions/29610004/how-to-stop-refreshing-viewpager-content
-             */
-            viewPager.offscreenPageLimit = 3
-            tabPagerAdapter.addFragment(ActiveAssessmentFragment(), getString(R.string.assessment_section_one_name))
-            tabPagerAdapter.addFragment(UpcomingAssessmentFragment(), getString(R.string.assessment_section_two_name))
-            tabPagerAdapter.addFragment(CompletedAssessmentFragment(), getString(R.string.assessment_section_three_name))
-            viewPager.adapter = tabPagerAdapter
-            binding.tbLayout.setupWithViewPager(viewPager)
-        }
+        tabPagerAdapter = TabPagerAdapter(childFragmentManager)
+        viewPager = binding.pager
+        /**
+         * How to stop refreshing viewpager content?
+         * https://stackoverflow.com/questions/29610004/how-to-stop-refreshing-viewpager-content
+         */
+        viewPager.offscreenPageLimit = 3
+        tabPagerAdapter.addFragment(ActiveAssessmentFragment(), getString(R.string.assessment_section_one_name))
+        tabPagerAdapter.addFragment(UpcomingAssessmentFragment(), getString(R.string.assessment_section_two_name))
+        tabPagerAdapter.addFragment(CompletedAssessmentFragment(), getString(R.string.assessment_section_three_name))
+        viewPager.adapter = tabPagerAdapter
+        binding.tbLayout.setupWithViewPager(viewPager)
+
+        binding.tbLayout.getTabAt(0)?.setIcon(R.drawable.ic_baseline_pending_actions_24)
+        binding.tbLayout.getTabAt(1)?.setIcon(R.drawable.ic_baseline_calendar_month_24)
+        binding.tbLayout.getTabAt(2)?.setIcon(R.drawable.ic_baseline_library_add_check_24)
     }
 
 }

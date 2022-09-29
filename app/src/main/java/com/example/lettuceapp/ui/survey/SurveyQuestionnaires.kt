@@ -2,17 +2,33 @@ package com.example.lettuceapp.ui.survey
 
 import android.os.Bundle
 import android.view.*
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.view.get
 import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.lettuceapp.R
 import com.example.lettuceapp.adapter.TabPagerAdapter
 import com.example.lettuceapp.databinding.FragmentSurveyQuestionnairesBinding
+import com.example.lettuceapp.model.SurveyResponse
 import com.example.lettuceapp.ui.survey.category.SurveyCategoryOneFragment
 import com.example.lettuceapp.ui.survey.category.SurveyCategorySecondFragment
 import com.example.lettuceapp.ui.survey.category.SurveyCategoryThirdFragment
+import com.google.firebase.auth.FirebaseAuthException
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.app
+import kotlinx.android.synthetic.main.card_layout_assessment.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.lang.Exception
+import java.lang.StringBuilder
+import java.util.*
+import kotlin.collections.HashMap
 
 class SurveyQuestionnaires : Fragment() {
 
@@ -52,16 +68,54 @@ class SurveyQuestionnaires : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.action_submit -> {
-                //Perform submit
-
                 //Step 1 get current user id
+                //TODO: Change checking of user id
+                val userId = "123"
+
+                val response = HashMap<String, Any?>()
+                val childUpper = HashMap<String, Any?>()
+                var child = HashMap<String, Any?>()
+                //Step 2 retrieve from fragment for user response
+                for(i in 0 until (binding.pager.adapter?.count!!)){
+                    val title = binding.tbLayout.getTabAt(i)?.text.toString()
+                    val recyclerView = binding.pager[i].findViewById<RecyclerView>(R.id.recycleViewSurveyCard1)
+
+                    var score = 0f
+                    var mean = 0f
+                    val count = recyclerView.adapter?.itemCount!!
+                    for(j in 0 until count){
+                        val radio = recyclerView.findViewById<CardView>(R.id.cardViewBaseAssessment)
+                            .findViewById<View>(R.id.constraintBaseSurveyCard)
+                            .findViewById<RadioGroup>(R.id.radioGroup)
+                        when (radio.checkedRadioButtonId){
+                            R.id.radioButtonScore1 -> score += 1
+                            R.id.radioButtonScore2 -> score += 2
+                            R.id.radioButtonScore3 -> score += 3
+                            R.id.radioButtonScore4 -> score += 4
+                            R.id.radioButtonScore5 -> score += 5
+                            else -> false
+                        }
+                    }
+                    mean = score / count.toFloat()
+
+                    child = HashMap(SurveyResponse.toMap(SurveyResponse(title, score, mean)))
+                    childUpper[title] = child
+                }
+                response[userId] = childUpper
 
                 //Insert into database
+                GlobalScope.launch {
+                    val database = FirebaseDatabase.getInstance()
+                    val databaseReference =  database.getReference("survey/response")
 
-                //Toast to prompt successful update
-//                Toast.makeText(activity?.applicationContext,
-//                    getString(R.string.survey_submitted), Toast.LENGTH_SHORT).show()
+                    try{
+                        databaseReference.setValue(response)
+                    }catch(e:Exception){
+                        Toast.makeText(activity?.applicationContext, e.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
 
+                //Response to success
                 findNavController().navigate(R.id.action_surveyQuestionnaires_to_surveyRecordedFragment)
                 true
             }

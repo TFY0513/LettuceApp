@@ -127,4 +127,9 @@
             android:id="@+id/action_surveyQuestionnaires_to_surveyRecordedFragment"
             app:destination="@id/surveyRecordedFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/assessmentTabFragment"
+        android:name="com.example.lettuceapp.ui.assessment.AssessmentTabFragment"
+        android:label="@string/assessment_label"
+        tools:layout="@layout/fragment_assessment_tab"/>
 </navigation>
