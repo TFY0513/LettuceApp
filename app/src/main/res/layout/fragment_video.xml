@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textViewVideo"
+            android:id="@+id/textViewVideoTitle"
             android:text="@string/video"
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -35,10 +35,10 @@
             android:rowCount="6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewVideo">
+            app:layout_constraintTop_toBottomOf="@+id/textViewVideoTitle">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/video1"
+                android:id="@+id/easyQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -90,7 +90,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/video2"
+                android:id="@+id/normalQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"

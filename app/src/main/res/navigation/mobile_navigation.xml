@@ -55,10 +55,59 @@
         android:id="@+id/difficultyFragment"
         android:name="com.example.lettuceapp.ui.learning.DifficultyFragment"
         android:label="@string/menu_level"
-        tools:layout="@layout/fragment_difficulty" />
+        tools:layout="@layout/fragment_difficulty" >
+        <action
+            android:id="@+id/action_difficultyFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:popUpTo="@id/materialFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/surveyFragment2"
+        android:name="com.example.lettuceapp.ui.survey.SurveyFragment"
+        android:label="@string/survey_label"
+        tools:layout="@layout/fragment_survey" >
+        <action
+            android:id="@+id/action_surveyFragment2_to_surveyQuestionnaires"
+            app:destination="@id/surveyQuestionnaires" />
+    </fragment>
     <fragment
         android:id="@+id/videoFragment"
         android:name="com.example.lettuceapp.ui.learning.VideoFragment"
-        android:label="fragment_video"
-        tools:layout="@layout/fragment_video" />
+        android:label="@string/menu_material"
+        tools:layout="@layout/fragment_video">
+        <action
+            android:id="@+id/action_videoFragment_to_viewVideoFragment"
+            app:destination="@id/viewVideoFragment"
+            app:popUpTo="@id/videoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewVideoFragment"
+        android:name="com.example.lettuceapp.ui.learning.ViewVideoFragment"
+        android:label="@string/disp_video"
+        tools:layout="@layout/fragment_view_video" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.lettuceapp.ui.learning.QuizFragment"
+        android:label="@string/menu_quiz"
+        tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/surveyRecordedFragment"
+        android:name="com.example.lettuceapp.ui.survey.SurveyRecordedFragment"
+        android:label="@string/survey_submitted_header"
+        tools:layout="@layout/fragment_survey_recorded" >
+        <action
+            android:id="@+id/action_surveyRecordedFragment_to_surveyFragment2"
+            app:destination="@id/surveyFragment2" />
+        <action
+            android:id="@+id/action_surveyRecordedFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/surveyQuestionnaires"
+        android:name="com.example.lettuceapp.ui.survey.SurveyQuestionnaires"
+        android:label="@string/survey_label">
+        <action
+            android:id="@+id/action_surveyQuestionnaires_to_surveyRecordedFragment"
+            app:destination="@id/surveyRecordedFragment" />
+    </fragment>
 </navigation>

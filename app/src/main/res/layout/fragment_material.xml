@@ -56,7 +56,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textViewVideo"
+                        android:id="@+id/textViewVideoTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -88,9 +88,9 @@
                         android:layout_marginTop="20dp"
                         android:text="@string/video_desc"
                         android:textColor="@color/white"
-                        app:layout_constraintEnd_toEndOf="@+id/textViewVideo"
-                        app:layout_constraintStart_toStartOf="@+id/textViewVideo"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewVideo" />
+                        app:layout_constraintEnd_toEndOf="@+id/textViewVideoTitle"
+                        app:layout_constraintStart_toStartOf="@+id/textViewVideoTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewVideoTitle" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

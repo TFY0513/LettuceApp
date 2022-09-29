@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewDifficulty">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/video1"
+                android:id="@+id/easyQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -54,6 +54,7 @@
                 app:cardElevation="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/easy"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -85,10 +86,10 @@
                     <TextView
                         android:id="@+id/textViewEasyDesc"
                         android:layout_width="100dp"
-                        android:textColor="@color/white"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="120dp"
                         android:text="@string/easy_level_desc"
+                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewEasyTitle" />
@@ -97,7 +98,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/video2"
+                android:id="@+id/normalQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -156,7 +157,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/hard"
+                android:id="@+id/hardQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
