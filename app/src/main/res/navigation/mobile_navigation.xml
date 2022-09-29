@@ -121,7 +121,8 @@
     <fragment
         android:id="@+id/surveyQuestionnaires"
         android:name="com.example.lettuceapp.ui.survey.SurveyQuestionnaires"
-        android:label="@string/survey_label">
+        android:label="@string/survey_label"
+        tools:layout="@layout/fragment_survey_questionnaires">
         <action
             android:id="@+id/action_surveyQuestionnaires_to_surveyRecordedFragment"
             app:destination="@id/surveyRecordedFragment" />
