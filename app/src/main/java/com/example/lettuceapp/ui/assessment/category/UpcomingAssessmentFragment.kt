@@ -22,6 +22,9 @@ class UpcomingAssessmentFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private var currentActive = 0 //haven't updated
+    private var previousLoaded = 0 //haven't updated
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,12 +46,28 @@ class UpcomingAssessmentFragment : Fragment() {
         val linearLayoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         retrieveAssessment()
         binding.layoutAssessmentCategory.recycleViewAssessment.layoutManager = linearLayoutManager
+
+        val pullToRefresh = binding.pullToRefresh
+        pullToRefresh.setOnRefreshListener {
+            retrieveAssessment()
+            pullToRefresh.isRefreshing = false
+            var result = if(currentActive !== previousLoaded){
+                (currentActive - previousLoaded).toString() + " upcoming assessment(s) loaded"
+            }else{
+                "No new upcoming assessment"
+            }
+            previousLoaded = currentActive
+            Toast.makeText(activity?.applicationContext,
+                result, Toast.LENGTH_SHORT).show()
+        }
+        previousLoaded = currentActive
     }
 
     private fun retrieveAssessment(){
         retrieveAssessment(activity?.applicationContext!!, object: AssessmentCallBack{
             override fun onCallBack(count: Int, assessmentList: List<Assessment>) {
-                binding.layoutAssessmentCategory.recycleViewAssessment.adapter = AssessmentAdapter(assessmentList)
+                binding.layoutAssessmentCategory.recycleViewAssessment.adapter = AssessmentAdapter(AssessmentAdapter.Type.UPCOMING, assessmentList)
+                currentActive = count
             }
         })
     }
@@ -67,7 +86,6 @@ class UpcomingAssessmentFragment : Fragment() {
                     it.result.children.count(),
                     it.result.children.mapNotNull { doc ->
                         doc.getValue(Assessment::class.java)
-
                     }
                 )
             } else {

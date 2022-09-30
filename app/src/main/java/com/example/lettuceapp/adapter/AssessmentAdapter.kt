@@ -1,22 +1,28 @@
 package com.example.lettuceapp.adapter
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lettuceapp.R
 import com.example.lettuceapp.model.Assessment
 import com.example.lettuceapp.ui.assessment.AssessmentAnsweringActivity
 import java.lang.Exception
+import java.util.*
+import java.util.concurrent.TimeUnit
 
-class AssessmentAdapter (assessmentList: List<Assessment>) :
+class AssessmentAdapter (assessmenttype: AssessmentAdapter.Type, assessmentList: List<Assessment>) :
     RecyclerView.Adapter<AssessmentAdapter.ViewHolder>() {
 
     private val assessmentList: List<Assessment>
+    private val assessmenttype: AssessmentAdapter.Type
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssessmentAdapter.ViewHolder {
         val view: View =
@@ -34,10 +40,31 @@ class AssessmentAdapter (assessmentList: List<Assessment>) :
         holder.questionCount.text = model.questions?.count().toString()
         holder.itemView.setOnClickListener { view ->
             try {
-                val intent = Intent(view.context, AssessmentAnsweringActivity::class.java)
-                ContextCompat.startActivity(view.context, intent, null)
+                when (assessmenttype){
+                    Type.ACTIVE -> {
+                        val intent = Intent(view.context, AssessmentAnsweringActivity::class.java)
+                        intent.putExtra("TITLE", model.title)
+                        ContextCompat.startActivity(view.context, intent, null)
+                    }
+                    Type.COMPLETED -> {
+                        //Redirect to show result
+                    }
+                    Type.UPCOMING -> {
+                        val days = differenceBetweenTimestamps(Calendar.getInstance().timeInMillis, (model.active_timestamp?.toLong()!! * 1000))
+                        val alertDialog = AlertDialog.Builder(view.context)
+                        alertDialog.apply {
+                            setTitle(R.string.assessment_upcoming_alert)
+                            setMessage(String.format(view.context.resources.getString(R.string.assessment_upcoming_alert_desc)
+                                , model.title, days))
+                            setPositiveButton(android.R.string.ok){ dialog,_ ->
+                                dialog.dismiss()
+                            }
+                        }.show()
+                    }
+                }
+
             } catch (e: Exception) {
-                Toast.makeText(view.context.applicationContext, e.message, Toast.LENGTH_SHORT).show()
+                Log.e("",e.stackTraceToString())
             }
         }
     }
@@ -62,8 +89,17 @@ class AssessmentAdapter (assessmentList: List<Assessment>) :
         }
     }
 
+    public enum class Type{
+        ACTIVE,UPCOMING,COMPLETED
+    }
+
+    private fun differenceBetweenTimestamps(start: Long, end: Long ): Long {
+        return TimeUnit.MILLISECONDS.toDays(end - start)
+    }
+
     init {
         this.assessmentList = assessmentList
+        this.assessmenttype = assessmenttype
     }
 
 }

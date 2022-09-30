@@ -136,6 +136,10 @@
     <string name="survey_section_two_name">Computer literacy</string>
     <string name="survey_section_three">Section 3</string>
     <string name="survey_section_three_name">Cooperative learning</string>
+
+    <string name="survey_required_alert_title">Argggh unfortunately this is compulsory to choose</string>
+    <string name="survey_required_alert_message">Question %s is required to answer</string>
+    <string name="survey_required_alert_positive">Bring me there</string>
     <!-- Survey - END -->
 
     <!-- Assessment - START -->
@@ -153,6 +157,9 @@
     <string name="assessment_section_two_name">Upcoming</string>
     <string name="assessment_section_three_name">Completed</string>
     <string name="assessment_label">Assessment</string>
+
+    <string name="assessment_upcoming_alert">Upcoming event</string>
+    <string name="assessment_upcoming_alert_desc">Assessment \"%s\" will active in %d day(s)</string>
     <!-- Assessment - END  -->
 
     <string name="username">Username</string>

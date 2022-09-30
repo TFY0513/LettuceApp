@@ -1,9 +1,11 @@
 package com.example.lettuceapp.ui.survey
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.core.view.get
 import androidx.core.view.isEmpty
@@ -76,30 +78,48 @@ class SurveyQuestionnaires : Fragment() {
                 val childUpper = HashMap<String, Any?>()
                 var child = HashMap<String, Any?>()
                 //Step 2 retrieve from fragment for user response
-                for(i in 0 until (binding.pager.adapter?.count!!)){
-                    val title = binding.tbLayout.getTabAt(i)?.text.toString()
-                    val recyclerView = binding.pager[i].findViewById<RecyclerView>(R.id.recycleViewSurveyCard1)
+                try{
+                    for(i in 0 until (binding.pager.adapter?.count!!)){
+                        val title = binding.tbLayout.getTabAt(i)?.text.toString()
+                        val recyclerView = binding.pager[i].findViewById<RecyclerView>(R.id.recycleViewSurveyCard1)
 
-                    var score = 0f
-                    var mean = 0f
-                    val count = recyclerView.adapter?.itemCount!!
-                    for(j in 0 until count){
-                        val radio = recyclerView.findViewById<CardView>(R.id.cardViewBaseAssessment)
-                            .findViewById<View>(R.id.constraintBaseSurveyCard)
-                            .findViewById<RadioGroup>(R.id.radioGroup)
-                        when (radio.checkedRadioButtonId){
-                            R.id.radioButtonScore1 -> score += 1
-                            R.id.radioButtonScore2 -> score += 2
-                            R.id.radioButtonScore3 -> score += 3
-                            R.id.radioButtonScore4 -> score += 4
-                            R.id.radioButtonScore5 -> score += 5
-                            else -> false
+                        var score = 0f
+                        val count = recyclerView.adapter?.itemCount!!
+                        for(j in 0 until count){
+                            val view = recyclerView.findViewById<CardView>(R.id.cardViewBaseAssessment)
+                                .findViewById<View>(R.id.constraintBaseSurveyCard)
+                            val radio =view.findViewById<RadioGroup>(R.id.radioGroup)
+                            when (radio.checkedRadioButtonId){
+                                R.id.radioButtonScore1 -> score += 1
+                                R.id.radioButtonScore2 -> score += 2
+                                R.id.radioButtonScore3 -> score += 3
+                                R.id.radioButtonScore4 -> score += 4
+                                R.id.radioButtonScore5 -> score += 5
+                                else -> {
+                                    val alertDialog = AlertDialog.Builder(requireActivity())
+                                    alertDialog.apply {
+                                        setTitle(R.string.survey_required_alert_title)
+                                        setMessage(String.format(getString(R.string.survey_required_alert_message)
+                                            , j))
+                                        setPositiveButton(R.string.survey_required_alert_positive){ dialog, _ ->
+                                            dialog.dismiss()
+                                        }
+                                    }.show()
+                                    radio.isFocusableInTouchMode = true;
+                                    radio.requestFocus()
+                                    throw Exception("[radio group -> " + j +  "]" + radio.id.toString() + " is required.")
+                                }
+                            }
+
                         }
-                    }
-                    mean = score / count.toFloat()
+                        val mean = score / count.toFloat()
 
-                    child = HashMap(SurveyResponse.toMap(SurveyResponse(title, score, mean)))
-                    childUpper[title] = child
+                        child = HashMap(SurveyResponse.toMap(SurveyResponse(title, score, mean)))
+                        childUpper[title] = child
+                    }
+                }catch(e:Exception){
+                    Log.w("Survey check item ", e.stackTraceToString())
+                    return false
                 }
                 response[userId] = childUpper
 

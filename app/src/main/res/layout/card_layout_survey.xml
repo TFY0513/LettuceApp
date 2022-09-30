@@ -120,7 +120,9 @@
                 app:layout_constraintBottom_toBottomOf="@+id/textView11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView11">
+                app:layout_constraintTop_toTopOf="@+id/textView11"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
 
                 <RadioButton
                     android:id="@+id/radioButtonScore1"

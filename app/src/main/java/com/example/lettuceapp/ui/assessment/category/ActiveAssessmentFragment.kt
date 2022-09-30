@@ -26,8 +26,8 @@ class ActiveAssessmentFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private var currentActive = -1 //haven't updated
-    private var previousLoaded = -2 //haven't updated
+    private var currentActive = 0 //haven't updated
+    private var previousLoaded = 0 //haven't updated
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +56,7 @@ class ActiveAssessmentFragment : Fragment() {
             retrieveAssessment()
             pullToRefresh.isRefreshing = false
             var result = if(currentActive !== previousLoaded){
-                (previousLoaded - currentActive ).toString() + "assessment(s) loaded"
+                (currentActive - previousLoaded).toString() + " assessment(s) loaded"
             }else{
                 "No new assessment"
             }
@@ -70,7 +70,7 @@ class ActiveAssessmentFragment : Fragment() {
     private fun retrieveAssessment(){
         retrieveAssessment(activity?.applicationContext!!, object: AssessmentCallBack{
             override fun onCallBack(count: Int, assessmentList: List<Assessment>) {
-                binding.layoutAssessmentCategory.recycleViewAssessment.adapter = AssessmentAdapter(assessmentList)
+                binding.layoutAssessmentCategory.recycleViewAssessment.adapter = AssessmentAdapter(AssessmentAdapter.Type.ACTIVE, assessmentList)
                 currentActive = count
             }
         })
@@ -90,7 +90,6 @@ class ActiveAssessmentFragment : Fragment() {
                     it.result.children.count(),
                     it.result.children.mapNotNull { doc ->
                         doc.getValue(Assessment::class.java)
-
                     }
                 )
             } else {
