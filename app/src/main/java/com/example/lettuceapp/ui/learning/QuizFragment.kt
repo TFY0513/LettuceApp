@@ -13,10 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.lettuceapp.R
 import com.example.lettuceapp.databinding.FragmentQuizBinding
 import com.example.lettuceapp.model.QuizResult
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,15 +34,11 @@ class QuizFragment : Fragment() {
 
     private lateinit var quizID: String
 
-
     private lateinit var database: DatabaseReference
     private lateinit var database2: DatabaseReference
 
-    private val quizViewModel: QuizViewModel by activityViewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -57,10 +50,8 @@ class QuizFragment : Fragment() {
 
         val root: View = binding.root
 
-
-
         showQues(position)
-        //loadQuiz()
+
         return root
     }
 
@@ -68,8 +59,24 @@ class QuizFragment : Fragment() {
         var questionNum = question + position
 
 
-        database = FirebaseDatabase.getInstance().getReference("quiz")
-        database.child(questionNum).get().addOnSuccessListener {
+        database = FirebaseDatabase.getInstance().getReference("quiz").child(requireArguments().getString("course").toString())
+        // database.child(requireArguments().getString("course").toString()).get().addOnSuccessListener {
+//        database.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                if (snapshot.exists()) {
+//                    for (childsnapshot in snapshot.child("-MgvP468FQ-jclZWHC5S").children) {  // 👈 children location8 and location9
+//                        for (locsnapshot in childsnapshot.children) { // 👈 children 0..4
+//                            val lat1 = locsnapshot.child("latitude").value as Double
+//                            val long1 = locsnapshot.child("longitude").value as Double
+//                            ...
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
+
+                database.child(questionNum).get().addOnSuccessListener {
             if (it.exists()) {
                 correctAn = it.child("answer").value.toString()
                 binding.textViewAnswer1.text = "a) " + it.child("option1").value.toString()
@@ -180,13 +187,18 @@ class QuizFragment : Fragment() {
     fun storeData() {
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         val currentDate = sdf.format(Date())
+        val course = when(requireArguments().getString("course").toString()){
+            "js" -> "JavaScript"
+            "chem" -> "Chemistry"
+
+            else -> "Accounting"
+        }
 
         database2 = FirebaseDatabase.getInstance().getReference("quiz_result")
         quizID = database2.push().key!!
         val quizResult = QuizResult(
             quizID, "UID00001",currentDate, correctQues, skipQues,
-
-            requireArguments().getString("course").toString(),
+            course,
             totalQues,
             requireArguments().getString("difficulty").toString()
         )
@@ -197,7 +209,6 @@ class QuizFragment : Fragment() {
             }.addOnFailureListener { err ->
                 Toast.makeText(this?.context, "Error ${err.message}", Toast.LENGTH_SHORT).show()
             }
-
 
     }
 
@@ -213,7 +224,6 @@ class QuizFragment : Fragment() {
         binding.textViewAnswer1.setOnClickListener() {
             checkAns(binding.textViewAnswer1.text.toString(), "option1")
             binding.buttonNext.setEnabled(false)
-
         }
 
         binding.textViewAnswer2.setOnClickListener() {
@@ -246,7 +256,7 @@ class QuizFragment : Fragment() {
                         putString("quizID", quizID)
                     })
             }
-            binding.textView6.text = position.toString()
+
         }
 
     }
