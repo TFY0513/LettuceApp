@@ -144,17 +144,13 @@ class RegisterActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
 
-                    createUserProfile(task.result.user.toString())
+                    createUserProfile(task.result.user?.uid!!)
                     Toast.makeText(this, "Profile had been created.", Toast.LENGTH_SHORT).show()
 
                     startActivity(Intent(this, LoginActivity::class.java))
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
             }
             .addOnFailureListener {
