@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import android.widget.Toast
+import com.example.lettuceapp.ui.registerlogin.LoginActivity
 import java.lang.Exception
 
 @SuppressLint("CustomSplashScreen")
@@ -22,7 +23,8 @@ class LaunchSplashActivity : AppCompatActivity() {
         )
 
         Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
+           // val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }, 1200)

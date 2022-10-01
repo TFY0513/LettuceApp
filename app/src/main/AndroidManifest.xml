@@ -57,6 +57,13 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.LettuceApp.NoActionBar"></activity>
 
+        <activity
+            android:name=".ui.registerlogin.LoginActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.LettuceApp.NoActionBar">
+        </activity>
+
         <provider
             android:authorities="com.example.lettuceapp.provider"
             android:name="androidx.core.content.FileProvider"
