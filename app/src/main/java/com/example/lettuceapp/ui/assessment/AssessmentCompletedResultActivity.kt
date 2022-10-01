@@ -21,10 +21,6 @@ class AssessmentCompletedResultActivity : AppCompatActivity() {
     }
 
     private fun loadPage(){
-        val title = intent.getStringExtra("TITLE").toString()
-        val date = intent.getStringExtra("DATE").toString()
-
-
 
     }
 }

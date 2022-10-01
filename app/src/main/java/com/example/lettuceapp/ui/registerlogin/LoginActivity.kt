@@ -25,6 +25,13 @@ class LoginActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
+        //If current user still under authenticate, allows login synchronously
+        if(auth.currentUser !== null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         binding.textViewLoginRegister.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
