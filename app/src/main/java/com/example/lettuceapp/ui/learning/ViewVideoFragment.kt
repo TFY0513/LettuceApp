@@ -26,7 +26,7 @@ class ViewVideoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentViewVideoBinding.inflate(inflater, container, false)
 
 
@@ -35,8 +35,7 @@ class ViewVideoFragment : Fragment() {
 
          binding.textViewVideoTitle.text=requireArguments().getString("title").toString()
      var uri = Uri.parse(requireArguments().getString("link").toString())
-       // var uri = Uri.parse("https://www.youtube.com/watch?v=FXikAK5bbXA&list=RDMM5ErOxlofkjA&index=19")
-       // binding.textViewVideoTitle.text=uri.toString()
+
         binding.videoView.setVideoURI(uri)
         binding.videoView.start()
        var mediaController = MediaController(this.context)

@@ -177,7 +177,7 @@
     <string name="submit2">Submit</string>
     <string name="logo">Logo</string>
     <string name="login">Login</string>
-    <string name="loginRegister">Still doesn\'t have a account yet?\nCreate an account here</string>
+    <string name="loginRegister">Still doesn\'t have a account yet? Create an account here</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="textViewRegisterLogin">already have an account? Login Here</string>
     <string name="login_here">login here</string>
@@ -341,4 +341,13 @@
         <item>Month</item>
         <item>Year</item>
     </string-array>
+    <!-- Login+Register - END -->
+
+    <!-- Profile- START -->
+    <string name="user_profile">User Profile</string>
+    <string name="user_name">Username:</string>
+    <string name="user_email">Email:</string>
+    <string name="user_status">Status:</string>
+    <string name="user_dob">Date Of Birth:</string>
+    <!-- Login+Register - END -->
 </resources>

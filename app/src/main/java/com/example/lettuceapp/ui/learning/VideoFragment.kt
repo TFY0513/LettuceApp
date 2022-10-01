@@ -86,12 +86,6 @@ class VideoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var link = ""
         binding.imageViewVideoBut.setOnClickListener {
-//            requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//            if (permission == 1) {
-//                download()
-//            } else {
-//
-//            } com.example.lettuceapp
 
             if (requireArguments().getString("course").toString() == "js") {
                 link = "android.resource://" + context?.getPackageName() + "/" + R.raw.js_video1
@@ -199,28 +193,4 @@ class VideoFragment : Fragment() {
 
     }
 
-//    fun download() {
-//
-//
-//        var downloadManager =
-//            this.context?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-//
-//        var link = "android.resource://com.example.lettuceapp.ui.learning/" + R.raw.video1
-//
-//
-//        //var link =
-//        // Uri.parse("https://www.youtube.com/watch?v=5ErOxlofkjA&list=RDMM5ErOxlofkjA&start_radio=1")
-//        var request = DownloadManager.Request(link)
-//        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
-//            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
-//            .setAllowedOverRoaming(false)
-//            .setDescription("${binding.textViewVideoTitle1.text.toString()} is downloading ...")
-//            .setTitle(binding.textViewVideoTitle1.text.toString() + ".mp4")
-//            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "Video1.mp4")
-//            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-//
-//        downloadManager.enqueue(request)
-//
-//
-//    }
 }
