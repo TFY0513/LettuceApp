@@ -24,6 +24,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
+@Suppress("UNCHECKED_CAST")
 class AssessmentAnsweringActivity : AppCompatActivity() {
 
     private val TAG = "AssessmentAnsweringAct"
@@ -208,6 +209,7 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showQues(position: Int) {
         database = FirebaseDatabase.getInstance().getReference("assessment")
         database.child(_ID).child("questions").limitToFirst(position + 1).get().addOnSuccessListener {
