@@ -25,7 +25,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/user_profile_icon"
+        android:src="@drawable/user_profile_icon_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUserProfile" />
@@ -61,6 +61,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:id="@+id/textViewUserNameGet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,6 +72,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:id="@+id/textViewDOBGet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,6 +83,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewUserStatusGet" />
 
                 <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:id="@+id/textViewUserStatusGet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,6 +106,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:id="@+id/textViewEmailGet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

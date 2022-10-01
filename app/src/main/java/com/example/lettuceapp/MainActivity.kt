@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread {
             var database = FirebaseDatabase.getInstance().getReference("users/$userId")
             database.get().addOnSuccessListener {
-                drawerLayout.textViewSidebarEmail.text = it.child("email").toString()
-                drawerLayout.textViewSidebarUsername.text = it.child("username").toString()
+                drawerLayout.textViewSidebarEmail.text = it.child("email").getValue(String:: class.java)
+                drawerLayout.textViewSidebarUsername.text = it.child("username").getValue(String:: class.java)
             }
         }
 

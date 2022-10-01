@@ -51,10 +51,10 @@ class UserFragment : Fragment() {
         database = FirebaseDatabase.getInstance().getReference("users/$userId")
 
         database.get().addOnSuccessListener{
-            binding.textViewDOBGet.text=it.child("date_of_birth").toString()
-            binding.textViewUserStatusGet.text=it.child("status").toString()
-            binding.textViewUserNameGet.text=it.child("username").toString()
-            binding.textViewEmailGet.text=it.child("email").toString()
+            binding.textViewDOBGet.text=it.child("date_of_birth").getValue(String:: class.java)
+            binding.textViewUserStatusGet.text=it.child("status").getValue(String:: class.java)
+            binding.textViewUserNameGet.text=it.child("username").getValue(String:: class.java)
+            binding.textViewEmailGet.text=it.child("email").getValue(String:: class.java)
         }
 
 
