@@ -80,7 +80,7 @@ class SurveyQuestionnaires : Fragment() {
                     for(i in 0 until (binding.pager.adapter?.count!!)){
                         val title = binding.tbLayout.getTabAt(i)?.text.toString()
                         val pager = binding.pager[i]
-                        val listView = pager.findViewById<ListView>(R.id.listViewOption)
+                        val listView = pager.findViewById<ListView>(R.id.listViewSurveyCard1)
 
                         var score = 0f
                         val count = listView.adapter?.count!!
@@ -121,7 +121,7 @@ class SurveyQuestionnaires : Fragment() {
                         childUpper[title] = HashMap(SurveyResponse.toMap(SurveyResponse(title, score, mean)))
                     }
                 }catch(e:Exception){
-                    Log.e(TAG, e.message!!)
+                    Log.e(TAG, e.stackTraceToString())
                     return false
                 }
                 response[userId] = childUpper
