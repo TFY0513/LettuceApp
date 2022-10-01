@@ -63,8 +63,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.LettuceApp.NoActionBar"></activity>
-
+            android:theme="@style/Theme.LettuceApp.NoActionBar"/>
         <provider
             android:authorities="com.example.lettuceapp.provider"
             android:name="androidx.core.content.FileProvider"
@@ -75,7 +74,6 @@
                 android:resource="@xml/file_path"/>
 
         </provider>
-            android:theme="@style/Theme.LettuceApp.NoActionBar" />
     </application>
 
 </manifest>
