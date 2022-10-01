@@ -186,16 +186,20 @@
 
     <string name="connection_error">You are disconnected to internet\n<u>Check connection</u></string>
     <string name="assessment_begin">Start Taking Test</string>
-    <string name="assessment_no_description">No addtional description to this assessment</string>
+    <string name="assessment_no_description">No additional description to this assessment</string>
     <string name="pause_cap">PAUSE</string>
     <string name="assessment_time_elapsed_label">Time elapsed</string>
     <string name="skip">Skip</string>
+    <string name="register">register</string>
+    <string name="login_email_tip">Email</string>
+    <string name="register_confirm_password">Confirm password</string>
+    <string name="register_dob">Date of Birth (Day/Month/Year)</string>
 
     <string-array name="register_status">
+        <item>Select an option for your current status</item>
         <item>Student</item>
         <item>Unemployed</item>
         <item>Employed</item>
-
     </string-array>
     <string-array name="dob_day">
         <item>Day</item>
@@ -323,7 +327,4 @@
         <item>2022</item>
     </string-array>
 
-    <string-array name="nationality">
-        <item></item>
-    </string-array>
 </resources>
