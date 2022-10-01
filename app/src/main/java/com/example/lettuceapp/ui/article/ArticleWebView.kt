@@ -33,11 +33,9 @@ class ArticleWebView : AppCompatActivity() {
         webView.settings.setSupportZoom(true)
     }
 
-    override fun onBackPressed() {
-        if (binding.articleWebview.canGoBack())
-            binding.articleWebview.goBack()
-        else
-            super.onBackPressed()
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed();
+        return false;
     }
 
 }

@@ -26,6 +26,7 @@ class SurveyAdapter (surveyList: List<Survey>) :
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: SurveyAdapter.ViewHolder, position: Int) {
+        holder.setIsRecyclable(false)
         val model: Survey = surveyList[position]
 
 //        holder.cardSurveyBase.background = generateRandomColor()
@@ -70,7 +71,7 @@ class SurveyAdapter (surveyList: List<Survey>) :
         return Color.rgb(red, green, blue)
     }
 
-    private fun generateRandomColor() : GradientDrawable{
+    private fun generateRandomColor() : GradientDrawable {
         val draw = GradientDrawable()
         draw.shape = GradientDrawable.RECTANGLE
         draw.setColor(setRandomColor())
@@ -79,3 +80,4 @@ class SurveyAdapter (surveyList: List<Survey>) :
     }
 
 }
+

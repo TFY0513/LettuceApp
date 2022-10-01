@@ -3,16 +3,15 @@ package com.example.lettuceapp.ui.survey
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ListView
 import android.widget.RadioGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.lettuceapp.R
 import com.example.lettuceapp.adapter.TabPagerAdapter
@@ -21,19 +20,16 @@ import com.example.lettuceapp.model.SurveyResponse
 import com.example.lettuceapp.ui.survey.category.SurveyCategoryOneFragment
 import com.example.lettuceapp.ui.survey.category.SurveyCategorySecondFragment
 import com.example.lettuceapp.ui.survey.category.SurveyCategoryThirdFragment
-import com.google.firebase.auth.FirebaseAuthException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.app
-import kotlinx.android.synthetic.main.card_layout_assessment.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import java.lang.StringBuilder
-import java.util.*
 import kotlin.collections.HashMap
 
 class SurveyQuestionnaires : Fragment() {
 
+    private val TAG = "SurveyQuestionnaires"
     private var _binding: FragmentSurveyQuestionnairesBinding? = null
 
     // This property is only valid between onCreateView and
@@ -72,53 +68,60 @@ class SurveyQuestionnaires : Fragment() {
             R.id.action_submit -> {
                 //Step 1 get current user id
                 //TODO: Change checking of user id
-                val userId = "123"
+                val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+//                val userId = "UID00001"
+
+                Log.d(TAG, "Current logged user => $userId")
 
                 val response = HashMap<String, Any?>()
                 val childUpper = HashMap<String, Any?>()
-                var child = HashMap<String, Any?>()
                 //Step 2 retrieve from fragment for user response
                 try{
                     for(i in 0 until (binding.pager.adapter?.count!!)){
                         val title = binding.tbLayout.getTabAt(i)?.text.toString()
-                        val recyclerView = binding.pager[i].findViewById<RecyclerView>(R.id.recycleViewSurveyCard1)
+                        val pager = binding.pager[i]
+                        val listView = pager.findViewById<ListView>(R.id.listViewOption)
 
                         var score = 0f
-                        val count = recyclerView.adapter?.itemCount!!
+                        val count = listView.adapter?.count!!
                         for(j in 0 until count){
-                            val view = recyclerView.findViewById<CardView>(R.id.cardViewBaseAssessment)
-                                .findViewById<View>(R.id.constraintBaseSurveyCard)
-                            val radio =view.findViewById<RadioGroup>(R.id.radioGroup)
-                            when (radio.checkedRadioButtonId){
+                            val view = listView.getChildAt(j)?.findViewById<ConstraintLayout>(R.id.constraintBase)?.findViewById<CardView>(R.id.cardViewBaseAssessment)
+                                ?.findViewById<ConstraintLayout>(R.id.constraintBaseSurveyCard)
+                            val radio = view?.findViewById<RadioGroup>(R.id.radioGroup)
+                            when (radio?.checkedRadioButtonId){
                                 R.id.radioButtonScore1 -> score += 1
                                 R.id.radioButtonScore2 -> score += 2
                                 R.id.radioButtonScore3 -> score += 3
                                 R.id.radioButtonScore4 -> score += 4
                                 R.id.radioButtonScore5 -> score += 5
                                 else -> {
-                                    val alertDialog = AlertDialog.Builder(requireActivity())
-                                    alertDialog.apply {
-                                        setTitle(R.string.survey_required_alert_title)
-                                        setMessage(String.format(getString(R.string.survey_required_alert_message)
-                                            , j))
-                                        setPositiveButton(R.string.survey_required_alert_positive){ dialog, _ ->
-                                            dialog.dismiss()
-                                        }
-                                    }.show()
-                                    radio.isFocusableInTouchMode = true;
-                                    radio.requestFocus()
-                                    throw Exception("[radio group -> " + j +  "]" + radio.id.toString() + " is required.")
+                                    //TODO: Solve ViewPager to destroy previous view in the list (not on screen)
+//                                    val alertDialog = AlertDialog.Builder(requireActivity())
+//                                    alertDialog.apply {
+//                                        setTitle(R.string.survey_required_alert_title)
+//                                        setMessage(String.format(getString(R.string.survey_required_alert_message)
+//                                            , (j+1), (i+1)))
+//                                        setPositiveButton(R.string.survey_required_alert_positive){ dialog, _ ->
+//                                            listView.setSelection(j)
+//                                            binding.tbLayout.selectTab(binding.tbLayout.getTabAt(i))
+//                                            dialog.dismiss()
+//                                        }
+//                                    }.show()
+//                                    throw Exception("[radio group -> " + (j+1) +  "]" + radio?.id.toString() + " is required.")
                                 }
                             }
 
                         }
                         val mean = score / count.toFloat()
 
-                        child = HashMap(SurveyResponse.toMap(SurveyResponse(title, score, mean)))
-                        childUpper[title] = child
+                        Log.d(TAG, "mean => ${mean}")
+                        Log.d(TAG, "count => ${count}")
+                        Log.d(TAG, "score => ${score}")
+
+                        childUpper[title] = HashMap(SurveyResponse.toMap(SurveyResponse(title, score, mean)))
                     }
                 }catch(e:Exception){
-                    Log.w("Survey check item ", e.stackTraceToString())
+                    Log.e(TAG, e.message!!)
                     return false
                 }
                 response[userId] = childUpper
@@ -153,7 +156,8 @@ class SurveyQuestionnaires : Fragment() {
              * How to stop refreshing viewpager content?
              * https://stackoverflow.com/questions/29610004/how-to-stop-refreshing-viewpager-content
              */
-            viewPager.offscreenPageLimit = 3
+//            viewPager.offscreenPageLimit = 3
+            viewPager.offscreenPageLimit = 8
             tabPagerAdapter.addFragment(SurveyCategoryOneFragment(), getString(R.string.survey_section_one_name))
             tabPagerAdapter.addFragment(SurveyCategorySecondFragment(), getString(R.string.survey_section_two_name))
             tabPagerAdapter.addFragment(SurveyCategoryThirdFragment(), getString(R.string.survey_section_three_name))

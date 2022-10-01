@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lettuceapp.R
 import com.example.lettuceapp.adapter.SurveyAdapter
+import com.example.lettuceapp.adapter.SurveyArrayAdapter
 import com.example.lettuceapp.databinding.FragmentSurveyCategorySecondBinding
 import com.example.lettuceapp.firebase.SurveyCallback
 import com.example.lettuceapp.model.Survey
@@ -49,7 +50,6 @@ class SurveyCategorySecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.layoutCategory.textViewSectionTitle.text = getString(R.string.survey_section_two)
-        binding.layoutCategory.recycleViewSurveyCard1.preserveFocusAfterLayout = true
     }
 
     private fun loadSurvey(){
@@ -57,12 +57,13 @@ class SurveyCategorySecondFragment : Fragment() {
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
         val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
 
-        val linearLayoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+//        val linearLayoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         if(isConnected){
             SurveyFragment.retrieveSurveyQuestion(activity?.applicationContext!!, getString(R.string.survey_section_two_name), object:
                 SurveyCallback {
                 override fun onCallBack(title: String, value: List<Survey>) {
-                    binding.layoutCategory.recycleViewSurveyCard1.adapter = SurveyAdapter(value)
+//                    binding.layoutCategory.recycleViewSurveyCard1.adapter = SurveyAdapter(value)
+                    binding.layoutCategory.listViewSurveyCard1.adapter = SurveyArrayAdapter(activity?.applicationContext!!, R.layout.card_layout_survey, value)
                 }
 
                 //Not used
@@ -70,6 +71,6 @@ class SurveyCategorySecondFragment : Fragment() {
             })
         }
 
-        binding.layoutCategory.recycleViewSurveyCard1.layoutManager = linearLayoutManager
+//        binding.layoutCategory.recycleViewSurveyCard1.layoutManager = linearLayoutManager
     }
 }

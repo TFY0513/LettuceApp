@@ -103,6 +103,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/assessment_duration_label"
+                android:textAllCaps="true"
                 android:textColor="@color/gray"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/assessment_question_label"
+                android:textAllCaps="true"
                 android:textColor="@color/gray"
                 app:layout_constraintStart_toStartOf="@+id/textViewQuestionCount"
                 app:layout_constraintTop_toBottomOf="@+id/textViewQuestionCount" />
@@ -137,6 +139,7 @@
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:text="@string/assessment_take_test_label"
+                android:textAllCaps="true"
                 android:textColor="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintEnd_toEndOf="parent"
