@@ -19,7 +19,6 @@ import com.example.lettuceapp.model.Question
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_assessment_answering.view.*
-import kotlinx.coroutines.Runnable
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt

@@ -39,8 +39,7 @@ class RegisterActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             performRegister()
         }
-// get email and password from user
-        // performRegister()
+
     }
 
     private fun performRegister() {
@@ -81,8 +80,6 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "Error: " + it.message, Toast.LENGTH_SHORT).show()
                 }
         }
-
-
     }
 
 }

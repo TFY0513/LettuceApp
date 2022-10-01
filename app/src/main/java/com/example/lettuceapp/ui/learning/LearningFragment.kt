@@ -60,9 +60,7 @@ class LearningFragment : Fragment(){
 
         binding.cardJs.setOnClickListener{
 
-//            val resul
-//            result.putString("course", "course")
-//           parentFragmentManager.setFragmentResult("courseSelected", result)
+
             findNavController().navigate(R.id.action_learningFragment_to_materialFragment, Bundle().apply {
                 putString("course", "js")
 
@@ -70,9 +68,7 @@ class LearningFragment : Fragment(){
         }
         binding.cardChem.setOnClickListener{
 
-//            val resul
-//            result.putString("course", "course")
-//           parentFragmentManager.setFragmentResult("courseSelected", result)
+
             findNavController().navigate(R.id.action_learningFragment_to_materialFragment, Bundle().apply {
                 putString("course", "chem")
 
@@ -80,9 +76,7 @@ class LearningFragment : Fragment(){
         }
         binding.cardAcct.setOnClickListener{
 
-//            val resul
-//            result.putString("course", "course")
-//           parentFragmentManager.setFragmentResult("courseSelected", result)
+
             findNavController().navigate(R.id.action_learningFragment_to_materialFragment, Bundle().apply {
                 putString("course", "acct")
 
@@ -90,11 +84,5 @@ class LearningFragment : Fragment(){
         }
     }
 
-
-//    fun onClick(view: View){
-//        Toast.makeText(getActivity(), "eqwewq", Toast.LENGTH_LONG).show();
-////        val intent = Intent(activity, LearningMaterial::class.java)
-////        startActivity(intent)
-//    }
 
 }

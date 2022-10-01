@@ -11,6 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.lettuceapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,11 +36,26 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.articleFragment, R.id.learningFragment, R.id.userFragment,R.id.statisticsFragment, R.id.surveyFragment2, R.id.assessmentTabFragment
+                R.id.articleFragment,
+                R.id.learningFragment,
+                R.id.userFragment,
+                R.id.statisticsFragment,
+                R.id.surveyFragment2,
+                R.id.assessmentTabFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        runOnUiThread {
+            var database = FirebaseDatabase.getInstance().getReference("users/$userId")
+            database.get().addOnSuccessListener {
+                drawerLayout.textViewSidebarEmail.text = it.child("email").toString()
+                drawerLayout.textViewSidebarUsername.text = it.child("username").toString()
+            }
+        }
 
     }
 

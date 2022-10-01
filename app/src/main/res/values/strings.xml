@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">LettuceApp</string>
+
+    <!-- sidebar - START -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -16,23 +18,25 @@
     <string name="menu_level">Difficulty</string>
     <string name="menu_quiz">Quiz</string>
     <string name="menu_result">Result</string>
+    <!-- sidebar - END -->
 
-    //Values for learning module
 
-    //course
+    <!-- course - START -->
     <string name="card_js">JavaScript</string>
     <string name="card_js_desc">Empower you with the skills to design client-side and platform-independent solutions</string>
     <string name="card_chemistry">Chemistry</string>
     <string name="card_chemistry_desc">Offers a rigorous, foundational treatment of atoms and molecules.</string>
     <string name="card_acct">Accouting</string>
     <string name="card_acct_desc">Focuses on the process of auditing financial statements</string>
+    <!-- course - END -->
 
-    //material
+    <!-- Material - START -->
     <string name="card_video">Video</string>
     <string name="card_quiz">Quiz</string>
     <string name="card_notes">Notes</string>
+    <!-- Material - END -->
 
-    //quiz
+    <!-- diffiuclty - START -->
     <string name="difficulty">Select quiz level</string>
     <string name="video_desc">Various video</string>
     <string name="quiz_desc">Form of games</string>
@@ -41,11 +45,11 @@
     <string name="normal_level">Intermediate</string>
     <string name="hard_level">Professional</string>
     <string name="difficulty_level">Difficulty:</string>
-    <string name="next_ques">Skip</string>
-    <string name="quiz_result">Quiz Result</string>
-    <string name="complete_msg">You have completed the quiz</string>
+    <!-- diffiuclty - END -->
 
-    //quiz result
+
+    <!-- Quiz - START -->
+    <string name="next_ques">Skip</string>
     <string name="quiz_course">Course:</string>
     <string name="quiz_date_taken">Date conducted:</string>
     <string name="quiz_level">Level:</string>
@@ -57,7 +61,13 @@
     <string name="btn_redo">Retake</string>
     <string name="quiz_skipQues">Skip Question:</string>
     <string name="quiz_userID">User ID:</string>
-    //video
+    <!-- Quiz - END -->
+
+    <string name="quiz_result">Quiz Result</string>
+    <string name="complete_msg">You have completed the quiz</string>
+
+
+    <!-- Video - START -->
     <string name="video">Videos</string>
 
     <string name="js_videoTitle1">Learn JAVASCRIPT in just 5 MINUTES (2020)</string>
@@ -83,11 +93,9 @@
     <string name="normal_level_desc">- 20 question\n- 3/4 answer each question</string>
     <string name="hard_level_desc">- 30 question\n- 4 answer each question</string>
 
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="disp_video">Show Video</string>
+    <!-- Video - END -->
+
 
     <!-- Values for article default holder text -->
     <string name="article_default_date_updated">Date updated</string>
@@ -108,6 +116,8 @@
 
     <string name="article_load_failed">Failed to load article\nDue to no internet connection\nKindly check if you are connected</string>
     <string name="check_connection">Check connection</string>
+
+
 
     <!-- Survey - START -->
     <string name="survey_label">Survey</string>
@@ -172,6 +182,8 @@
 
     <!-- Assessment - END  -->
 
+
+    <!-- Login+Register - START -->
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="submit2">Submit</string>
@@ -326,5 +338,13 @@
         <item>2021</item>
         <item>2022</item>
     </string-array>
+    <!-- Login+Register - END -->
 
+    <!-- Profile- START -->
+    <string name="user_profile">User Profile</string>
+    <string name="user_name">Username:</string>
+    <string name="user_email">Email:</string>
+    <string name="user_status">Status:</string>
+    <string name="user_dob">Date Of Birth:</string>
+    <!-- Login+Register - END -->
 </resources>
