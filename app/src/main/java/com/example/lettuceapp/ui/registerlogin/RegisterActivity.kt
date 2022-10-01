@@ -126,7 +126,6 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             performRegister()
-            createUserProfile()
         }
     }
 
@@ -144,6 +143,8 @@ class RegisterActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
+
+                    createUserProfile(task.result.user.toString())
                     Toast.makeText(this, "Profile had been created.", Toast.LENGTH_SHORT).show()
 
                     startActivity(Intent(this, LoginActivity::class.java))
@@ -242,8 +243,7 @@ class RegisterActivity : AppCompatActivity() {
         return true
     }
 
-    private fun createUserProfile(): Boolean {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+    private fun createUserProfile(userId: String): Boolean {
         GlobalScope.launch {
             val database = FirebaseDatabase.getInstance()
             val databaseReference = database.getReference("users/$userId")
