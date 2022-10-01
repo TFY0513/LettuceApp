@@ -46,6 +46,10 @@
             android:exported="true"
             android:theme="@style/Theme.LettuceApp.NoActionBar" />
         <activity
+            android:name=".ui.registerlogin.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LettuceApp.NoActionBar" />
+        <activity
             android:name=".LaunchSplashActivity"
             android:exported="true"
             android:theme="@style/Theme.LettuceApp.NoActionBar">

@@ -156,8 +156,7 @@ class SurveyQuestionnaires : Fragment() {
              * How to stop refreshing viewpager content?
              * https://stackoverflow.com/questions/29610004/how-to-stop-refreshing-viewpager-content
              */
-//            viewPager.offscreenPageLimit = 3
-            viewPager.offscreenPageLimit = 8
+            viewPager.offscreenPageLimit = 3
             tabPagerAdapter.addFragment(SurveyCategoryOneFragment(), getString(R.string.survey_section_one_name))
             tabPagerAdapter.addFragment(SurveyCategorySecondFragment(), getString(R.string.survey_section_two_name))
             tabPagerAdapter.addFragment(SurveyCategoryThirdFragment(), getString(R.string.survey_section_three_name))

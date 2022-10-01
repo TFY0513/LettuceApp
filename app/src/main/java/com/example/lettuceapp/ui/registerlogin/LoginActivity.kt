@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import com.example.lettuceapp.MainActivity
 //import com.example.heechintong.databinding.ActivityLoginBinding
 import com.example.lettuceapp.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -44,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email,password)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                    //val intent = Intent(this, dashboard::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
                 .addOnFailureListener {
