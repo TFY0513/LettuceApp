@@ -1,6 +1,7 @@
 package com.example.lettuceapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        Log.e("", userId)
         runOnUiThread {
             var database = FirebaseDatabase.getInstance().getReference("users/$userId")
             database.get().addOnSuccessListener {
