@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lettuceapp.R
 import com.example.lettuceapp.adapter.ArticleAdapter
 import com.example.lettuceapp.adapter.SurveyAdapter
+import com.example.lettuceapp.adapter.SurveyArrayAdapter
 import com.example.lettuceapp.databinding.FragmentSurveyCategoryOneBinding
 import com.example.lettuceapp.firebase.ArticleCallBack
 import com.example.lettuceapp.firebase.SurveyCallback
@@ -53,7 +55,7 @@ class SurveyCategoryOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.layoutCategory.textViewSectionTitle.text = getString(R.string.survey_section_one)
-        binding.layoutCategory.recycleViewSurveyCard1.preserveFocusAfterLayout = true
+
     }
 
     private fun loadSurvey(){
@@ -61,11 +63,15 @@ class SurveyCategoryOneFragment : Fragment() {
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
         val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
 
-        val linearLayoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+//        val linearLayoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
         if(isConnected){
             SurveyFragment.retrieveSurveyQuestion(activity?.applicationContext!!, getString(R.string.survey_section_one_name), object: SurveyCallback {
                 override fun onCallBack(title: String, value: List<Survey>) {
-                    binding.layoutCategory.recycleViewSurveyCard1.adapter = SurveyAdapter(value)
+//                    val recyclerView = binding.layoutCategory.recycleViewSurveyCard1
+//                    recyclerView.recycledViewPool.setMaxRecycledViews(0, value.size)
+//                    recyclerView.setItemViewCacheSize(value.size)
+//                    recyclerView.adapter = SurveyAdapter(value)
+                    binding.layoutCategory.listViewSurveyCard1.adapter = SurveyArrayAdapter(activity?.applicationContext!!, R.layout.card_layout_survey, value)
                 }
 
                 //Not used
@@ -73,6 +79,6 @@ class SurveyCategoryOneFragment : Fragment() {
             })
         }
 
-        binding.layoutCategory.recycleViewSurveyCard1.layoutManager = linearLayoutManager
+//        binding.layoutCategory.recycleViewSurveyCard1.layoutManager = linearLayoutManager
     }
 }

@@ -6,23 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lettuceapp.R
 import com.example.lettuceapp.model.Assessment
-import com.example.lettuceapp.ui.assessment.AssessmentAnsweringActivity
+import com.example.lettuceapp.ui.assessment.AssessmentCompletedResultActivity
+import com.example.lettuceapp.ui.assessment.AssessmentStartActivity
 import java.lang.Exception
 import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
-class AssessmentAdapter (assessmenttype: AssessmentAdapter.Type, assessmentList: List<Assessment>) :
+class AssessmentAdapter (assessmentType: AssessmentAdapter.Type, assessmentList: List<Assessment>, questionId: List<String>? = ArrayList()) :
     RecyclerView.Adapter<AssessmentAdapter.ViewHolder>() {
 
     private val assessmentList: List<Assessment>
-    private val assessmenttype: AssessmentAdapter.Type
+    private val assessmentType: AssessmentAdapter.Type
+    //Only for completed
+    private val questionId: List<String>?
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssessmentAdapter.ViewHolder {
         val view: View =
@@ -40,14 +42,19 @@ class AssessmentAdapter (assessmenttype: AssessmentAdapter.Type, assessmentList:
         holder.questionCount.text = model.questions?.count().toString()
         holder.itemView.setOnClickListener { view ->
             try {
-                when (assessmenttype){
+                when (assessmentType){
                     Type.ACTIVE -> {
-                        val intent = Intent(view.context, AssessmentAnsweringActivity::class.java)
+                        val intent = Intent(view.context, AssessmentStartActivity::class.java)
                         intent.putExtra("TITLE", model.title)
+//                        intent.putExtra("DATE", model.date)
+                        intent.putExtra("ID", questionId!![position])
                         ContextCompat.startActivity(view.context, intent, null)
                     }
                     Type.COMPLETED -> {
                         //Redirect to show result
+                        val intent = Intent(view.context, AssessmentCompletedResultActivity::class.java)
+                        intent.putExtra("ID",  questionId!![position])
+                        ContextCompat.startActivity(view.context, intent, null)
                     }
                     Type.UPCOMING -> {
                         val days = differenceBetweenTimestamps(Calendar.getInstance().timeInMillis, (model.active_timestamp?.toLong()!! * 1000))
@@ -99,7 +106,8 @@ class AssessmentAdapter (assessmenttype: AssessmentAdapter.Type, assessmentList:
 
     init {
         this.assessmentList = assessmentList
-        this.assessmenttype = assessmenttype
+        this.assessmentType = assessmentType
+        this.questionId = questionId
     }
 
 }

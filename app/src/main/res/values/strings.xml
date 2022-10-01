@@ -138,7 +138,7 @@
     <string name="survey_section_three_name">Cooperative learning</string>
 
     <string name="survey_required_alert_title">Argggh unfortunately this is compulsory to choose</string>
-    <string name="survey_required_alert_message">Question %s is required to answer</string>
+    <string name="survey_required_alert_message">Question %s at Section %s is required to answer</string>
     <string name="survey_required_alert_positive">Bring me there</string>
     <!-- Survey - END -->
 
@@ -149,9 +149,9 @@
     <string name="assessment_duration_default">000</string>
     <string name="assessment_duration_unit_default">mins</string>
     <string name="assessment_question_default">0</string>
-    <string name="assessment_duration_label">DURATION</string>
-    <string name="assessment_question_label">QUESTION</string>
-    <string name="assessment_take_test_label">TAKE TEST</string>
+    <string name="assessment_duration_label">Duration</string>
+    <string name="assessment_question_label">Question</string>
+    <string name="assessment_take_test_label">Take Test</string>
 
     <string name="assessment_section_one_name">Active</string>
     <string name="assessment_section_two_name">Upcoming</string>
@@ -160,6 +160,16 @@
 
     <string name="assessment_upcoming_alert">Upcoming event</string>
     <string name="assessment_upcoming_alert_desc">Assessment \"%s\" will active in %d day(s)</string>
+
+    <string name="assessment_empty_active">There has no active assessment at the moment.</string>
+    <string name="assessment_empty_upcoming">There has no upcoming assessment at the moment.</string>
+    <string name="assessment_empty_completed">Have you completed any assessment? \nHow about took one now?</string>
+
+    <string name="assessment_instruction">Instruction</string>
+    <string name="assessment_question_level_title"><u>QUESTION LEVEL</u></string>
+    <string name="assessment_question_level_description">Students at Proficiency Level 4 can work effectively with explicit models for complex, concrete situations that might involve constraints or call for making assumptions. They can select and integrate different representations, including symbolic ones, linking them directly to aspects of real-world situations. Students at this level can use well-developed skills and reason flexibly, with some insight, in these contexts. They can construct and communicate explanations and arguments based on their interpretations, arguments and actions.</string>
+
+
     <!-- Assessment - END  -->
 
     <string name="username">Username</string>
@@ -173,4 +183,11 @@
     <string name="login_here">login here</string>
     <string name="firstname">FirstName</string>
     <string name="lastname">LastName</string>
+
+    <string name="connection_error">You are disconnected to internet\n<u>Check connection</u></string>
+    <string name="assessment_begin">Start Taking Test</string>
+    <string name="assessment_no_description">No addtional description to this assessment</string>
+    <string name="pause_cap">PAUSE</string>
+    <string name="assessment_time_elapsed_label">Time elapsed</string>
+    <string name="skip">Skip</string>
 </resources>

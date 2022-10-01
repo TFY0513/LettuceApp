@@ -65,4 +65,8 @@ class AssessmentTabFragment : Fragment() {
         binding.tbLayout.getTabAt(2)?.setIcon(R.drawable.ic_baseline_library_add_check_24)
     }
 
+    fun changeTab(tab: Int){
+        binding.tbLayout.selectTab(binding.tbLayout.getTabAt(tab))
+    }
+
 }
