@@ -47,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Error: " + it.message, Toast.LENGTH_SHORT).show()
