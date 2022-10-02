@@ -353,5 +353,7 @@
     <string name="user_status">Status:</string>
     <string name="user_dob">Date Of Birth:</string>
     <string name="signout">Sign out</string>
+    <string name="assessment_check_result">Check\nResult</string>
+    <string name="assessment_score">Score</string>
     <!-- Login+Register - END -->
 </resources>

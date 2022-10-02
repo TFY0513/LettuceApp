@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/assessment_question_label"
+                android:text="@string/assessment_score"
                 android:textAllCaps="true"
                 android:textColor="@color/gray"
                 app:layout_constraintStart_toStartOf="@+id/textViewScore"
@@ -138,11 +138,21 @@
                 android:shadowColor="@color/black"
                 android:shadowDx="5"
                 android:shadowDy="5"
-                android:text="@string/assessment_take_test_label"
+                android:text="@string/assessment_check_result"
                 android:textAllCaps="true"
                 android:textColor="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewScore" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="%"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewScore"
+                app:layout_constraintStart_toEndOf="@+id/textViewScore"
                 app:layout_constraintTop_toTopOf="@+id/textViewScore" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
