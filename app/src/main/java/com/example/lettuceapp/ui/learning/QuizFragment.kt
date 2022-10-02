@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.lettuceapp.R
 import com.example.lettuceapp.databinding.FragmentQuizBinding
 import com.example.lettuceapp.model.QuizResult
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
@@ -179,11 +180,11 @@ class QuizFragment : Fragment() {
 
             else -> "Accounting"
         }
-
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
         database2 = FirebaseDatabase.getInstance().getReference("quiz_result")
         quizID = database2.push().key!!
         val quizResult = QuizResult(
-            quizID, "UID00001", currentDate, correctQues, skipQues,
+            quizID, userId, currentDate, correctQues, skipQues,
             course,
             totalQues,
             requireArguments().getString("difficulty").toString()
