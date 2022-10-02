@@ -165,6 +165,8 @@
     <string name="assessment_empty_upcoming">There has no upcoming assessment at the moment.</string>
     <string name="assessment_empty_completed">Have you completed any assessment? \nHow about took one now?</string>
 
+    <string name="assessment_completed">Completed assessment</string>
+
     <string name="assessment_instruction">Instruction</string>
     <string name="assessment_question_level_title"><u>QUESTION LEVEL</u></string>
     <string name="assessment_question_level_description">Students at Proficiency Level 4 can work effectively with explicit models for complex, concrete situations that might involve constraints or call for making assumptions. They can select and integrate different representations, including symbolic ones, linking them directly to aspects of real-world situations. Students at this level can use well-developed skills and reason flexibly, with some insight, in these contexts. They can construct and communicate explanations and arguments based on their interpretations, arguments and actions.</string>
