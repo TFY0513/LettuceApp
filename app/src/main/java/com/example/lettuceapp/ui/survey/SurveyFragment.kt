@@ -47,6 +47,7 @@ class SurveyFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
 
         menu.findItem(R.id.action_settings).isVisible = false
+        menu.findItem(R.id.action_signout).isVisible = false
     }
 
     @SuppressLint("QueryPermissionsNeeded")

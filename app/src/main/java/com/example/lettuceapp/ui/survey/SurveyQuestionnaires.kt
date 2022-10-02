@@ -61,6 +61,7 @@ class SurveyQuestionnaires : Fragment() {
 
         menu.findItem(R.id.action_settings).isVisible = false
         menu.findItem(R.id.action_submit).isVisible = true
+        menu.findItem(R.id.action_signout).isVisible = false
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -69,7 +70,6 @@ class SurveyQuestionnaires : Fragment() {
                 //Step 1 get current user id
                 //TODO: Change checking of user id
                 val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-//                val userId = "UID00001"
 
                 Log.d(TAG, "Current logged user => $userId")
 

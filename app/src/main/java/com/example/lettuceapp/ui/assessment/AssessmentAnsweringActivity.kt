@@ -2,7 +2,9 @@ package com.example.lettuceapp.ui.assessment
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -11,14 +13,14 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.size
 import com.example.lettuceapp.R
 import com.example.lettuceapp.databinding.ActivityAssessmentAnsweringBinding
 import com.example.lettuceapp.firebase.AssessmentCallBack
 import com.example.lettuceapp.model.Assessment
-import com.example.lettuceapp.model.Question
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_assessment_answering.view.*
+import com.google.firebase.database.ktx.getValue
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
@@ -42,9 +44,9 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
     private var skipQues = 0
     private var totalQues = 1
     private lateinit var correctAn: String
+    private var totalQuestion = 0
 
-    private var questionsQueue: Queue<Question> = LinkedList<Question>()
-
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAssessmentAnsweringBinding.inflate(layoutInflater)
@@ -58,6 +60,32 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
 
         binding.listViewOption.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         binding.listViewOption.setSelector(android.R.color.darker_gray);
+
+        binding.buttonSkip.setOnClickListener{
+            skipQues++
+            totalQues++
+            position++
+
+            if (position < totalQuestion) {
+                showQues(position)
+            } else if (position == (totalQuestion)) {
+                binding.buttonSkip.text = "Finish"
+                totalQues--
+                storeData()
+
+                var intent = Intent(this, AssessmentCompletedResultActivity::class.java).apply {
+                    this.putExtra("ID",_ID)
+                    this.putExtra("SKIPPED",skipQues)
+                    this.putExtra("","")
+                    this.putExtra("","")
+                }
+                startActivity(intent)
+            }
+        }
+    }
+
+    private fun storeData() {
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,7 +94,7 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
 
         menu.findItem(R.id.action_pause).isVisible = true
         menu.findItem(R.id.action_settings).isVisible = false
-
+        menu.findItem(R.id.action_signout).isVisible = false
         return true
     }
 
@@ -134,7 +162,6 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
                 runOnUiThread {
                     time++
                     binding.textViewTimer.text = formatTimer(time)
-//                    Log.d(TAG, "Timer running at ${time}, time => " + formatTimer(time))
                 }
             }
         }
@@ -194,13 +221,15 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val databaseReference =  database.getReference("assessment/${_ID}")
 
-        Log.d(TAG, "ID => ${_ID}")
+        Log.d(TAG, "ID => $_ID")
 
         databaseReference.get().addOnCompleteListener {
             if (it.isSuccessful) {
+                val result = it.result.getValue(Assessment::class.java)!! as Assessment
                 callback.onCallBack(
-                    it.result.getValue(Assessment::class.java)!!
+                    result
                 )
+                totalQuestion = result.questions?.size!!
             } else {
                 Toast.makeText(context, it.exception?.message.toString(), Toast.LENGTH_LONG).show()
                 Log.e(TAG, it.exception!!.stackTraceToString())
@@ -211,12 +240,12 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun showQues(position: Int) {
         database = FirebaseDatabase.getInstance().getReference("assessment")
-        database.child(_ID).child("questions").limitToFirst(position + 1).get().addOnSuccessListener {
+        database.child(_ID).child("questions").get().addOnSuccessListener {
             if (it.exists()) {
                 Log.d(TAG, "Loaded with ${it.children.count()} records")
                 Log.d(TAG, "Result => ${it.value}")
 
-                val question: HashMap<String, Any?> = (it.value as ArrayList<Any?>)[0] as HashMap<String, Any?>
+                val question: HashMap<String, Any?> = (it.value as ArrayList<Any?>)[position] as HashMap<String, Any?>
 
                 correctAn = question["answer"].toString()
                 binding.textViewQuestionDet.text = question["question"].toString()
@@ -226,12 +255,24 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
                 binding.listViewOption.setOnItemClickListener {p0, p1, p2, p3 ->
                     binding.listViewOption.setItemChecked(p2, true)
                     binding.listViewOption.isEnabled = false
+                    binding.buttonSkip.isEnabled = false
                     Log.d(TAG, "Option $p2 had been selected, checking answer")
                     val optionSelected = binding.listViewOption.getItemAtPosition(p2).toString()
                     if(optionSelected == correctAn){
                         Log.d(TAG, "Correct answer")
+                        binding.listViewOption.setSelector(R.color.correct_ans)
+                        correctQues++
                     }else{
                         Log.d(TAG, "Wrong answer, selected option = $optionSelected")
+                        binding.listViewOption.setSelector(R.color.wrong_ans);
+                        for(i in 0 until binding.listViewOption.size){
+                            if(binding.listViewOption.getItemAtPosition(i).toString() == correctAn){
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                    binding.listViewOption.getChildAt(i).setBackgroundColor(getColor(R.color.correct_ans))
+                                }
+                                break
+                            }
+                        }
                     }
                 }
             }else{

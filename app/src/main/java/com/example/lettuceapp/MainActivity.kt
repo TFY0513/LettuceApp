@@ -1,8 +1,10 @@
 package com.example.lettuceapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -11,6 +13,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.lettuceapp.databinding.ActivityMainBinding
+import com.example.lettuceapp.ui.registerlogin.LoginActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +54,6 @@ class MainActivity : AppCompatActivity() {
 
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        Log.e("", userId)
         runOnUiThread {
             var database = FirebaseDatabase.getInstance().getReference("users/$userId")
             database.get().addOnSuccessListener {
@@ -69,7 +72,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
+        if(firebaseAuth.currentUser!!.isAnonymous){
+            menu.findItem(R.id.action_signout).isVisible = false
+        }
+
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_signout -> {
+                firebaseAuth.signOut().apply {
+                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+                    finish()
+                }
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
