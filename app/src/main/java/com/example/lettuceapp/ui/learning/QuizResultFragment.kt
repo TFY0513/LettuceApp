@@ -67,7 +67,7 @@ class QuizResultFragment : Fragment() {
                     result = "Failed"
                     binding.textViewQuizResultGet.setTextColor(getResources().getColor(R.color.wrong_ans))
                 }
-                binding.textViewUserIDGet.text = it.child("userID").value.toString()
+//                binding.textViewUsernameGet.text = it.child("userID").value.toString()
                 binding.textViewQuizCourseGet.text = it.child("course").value.toString()
                 binding.textViewDateGet.text = it.child("date").value.toString()
                 binding.textViewQuizLvlGet.text = it.child("quiz_level").value.toString()

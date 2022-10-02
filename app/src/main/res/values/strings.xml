@@ -56,7 +56,7 @@
     <string name="quiz_passOrFail">Result:</string>
     <string name="btn_redo">Retake</string>
     <string name="quiz_skipQues">Skip Question:</string>
-    <string name="quiz_userID">User ID:</string>
+    <string name="quiz_userName">User Name:</string>
     //video
     <string name="video">Videos</string>
 
