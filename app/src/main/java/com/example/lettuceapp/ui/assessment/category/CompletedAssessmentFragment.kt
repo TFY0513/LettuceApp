@@ -19,6 +19,7 @@ import com.example.lettuceapp.databinding.FragmentCompletedAssessmentBinding
 import com.example.lettuceapp.firebase.AssessmentCallBack
 import com.example.lettuceapp.model.Assessment
 import com.example.lettuceapp.ui.assessment.AssessmentTabFragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
@@ -33,9 +34,12 @@ class CompletedAssessmentFragment : Fragment() {
     private var currentActive = 0 //haven't updated
     private var previousLoaded = 0 //haven't updated
 
+    private lateinit var userId: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        userId = FirebaseAuth.getInstance().currentUser?.uid!!
     }
 
     override fun onCreateView(
@@ -112,7 +116,7 @@ class CompletedAssessmentFragment : Fragment() {
                 }
                 binding.layoutAssessmentCategory.constraintWarning.visibility = View.INVISIBLE
                 binding.layoutAssessmentCategory.recycleViewAssessment.adapter = AssessmentAdapter(
-                    AssessmentAdapter.Type.UPCOMING, assessmentList)
+                    AssessmentAdapter.Type.COMPLETED, assessmentList)
                 currentActive = count
             }
         })
@@ -121,7 +125,7 @@ class CompletedAssessmentFragment : Fragment() {
     //TODO: Retrieve completed assessment result
     private fun retrieveAssessment(context: Context, callback : AssessmentCallBack){
         val database = FirebaseDatabase.getInstance()
-        val databaseReference =  database.getReference("assessment/completed/users")
+        val databaseReference =  database.getReference("assessment/completed/users/${userId}")
 
         databaseReference.get().addOnCompleteListener {
             if (it.isSuccessful) {

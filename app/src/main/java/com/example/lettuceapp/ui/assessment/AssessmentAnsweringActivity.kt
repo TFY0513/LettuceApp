@@ -13,16 +13,17 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.size
 import com.example.lettuceapp.R
 import com.example.lettuceapp.databinding.ActivityAssessmentAnsweringBinding
 import com.example.lettuceapp.firebase.AssessmentCallBack
 import com.example.lettuceapp.model.Assessment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.getValue
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
 @Suppress("UNCHECKED_CAST")
@@ -42,11 +43,13 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private var correctQues = 0
     private var skipQues = 0
-    private var totalQues = 1
-    private lateinit var correctAn: String
+    private var correctAn: Int = 0
+    private var wrongQues: Int = 0
     private var totalQuestion = 0
+    private lateinit var intervalSwitchQuestion: CountDownTimer
+    private lateinit var completionDateTime: String
+    private lateinit var elapsedTime: String
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAssessmentAnsweringBinding.inflate(layoutInflater)
@@ -63,29 +66,16 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
 
         binding.buttonSkip.setOnClickListener{
             skipQues++
-            totalQues++
-            position++
-
-            if (position < totalQuestion) {
-                showQues(position)
-            } else if (position == (totalQuestion)) {
-                binding.buttonSkip.text = "Finish"
-                totalQues--
-                storeData()
-
-                var intent = Intent(this, AssessmentCompletedResultActivity::class.java).apply {
-                    this.putExtra("ID",_ID)
-                    this.putExtra("SKIPPED",skipQues)
-                    this.putExtra("","")
-                    this.putExtra("","")
-                }
-                startActivity(intent)
-            }
+            nextQuestionOrDie()
         }
-    }
 
-    private fun storeData() {
-
+        binding.buttonNextAssessment.isEnabled = false
+        binding.buttonNextAssessment.setOnClickListener{
+            intervalSwitchQuestion.cancel().apply {
+                binding.textViewTimeout.text = null
+            }
+            nextQuestionOrDie()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -113,6 +103,11 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
                 true
             }
             android.R.id.home -> {
+//                startActivity(Intent(applicationContext, AssessmentStartActivity::class.java).apply {
+//                    this.putExtra("ID", _ID)
+//                    this.putExtra("TITLE", _ID)
+//                })
+//                finish()
                 onBackPressed()
                 true
             }
@@ -121,7 +116,10 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        startActivity(Intent(applicationContext, AssessmentStartActivity::class.java).apply {
+            this.putExtra("ID", _ID)
+        })
+        finish()
         return false
     }
 
@@ -134,7 +132,9 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
             }
         })
 
-        overlayCountdown()
+        binding.constraintOverlay.visibility = View.GONE
+//        overlayCountdown()
+        startTimer()
         showQues(position)
     }
 
@@ -142,15 +142,22 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
         super.onPause()
 
         //TODO: store the current state of assessment
+        saveState()
     }
 
     override fun onResume() {
         super.onResume()
 
         //TODO: restore the current state of assessment
+        restoreState()
     }
 
     private fun saveState(){
+        var bundle: Bundle = Bundle()
+
+    }
+
+    private fun restoreState(){
         var bundle: Bundle = Bundle()
 
     }
@@ -198,7 +205,7 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
                     }
                     0 -> {
                         binding.textViewCountdown.setTextColor(Color.rgb(0, 0, 255))
-                        binding.textViewCountdown.text = "START"
+                        binding.textViewCountdown.text = "GO"
                         return
                     }
                 }
@@ -237,8 +244,37 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
         }
     }
 
+    private fun reloadLayoutState(){
+        intervalSwitchQuestion = object : CountDownTimer(6000, 1000) {
+
+            // Callback function, fired on regular interval
+            override fun onTick(millisUntilFinished: Long) {
+                val sec = (millisUntilFinished / 1000).toInt()
+                val result = String.format(
+                    "%d s to proceed next question",
+                    sec)
+//                binding.textViewTimeout.text = (millisUntilFinished / 1000).toString()
+//                Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT).show()
+                binding.buttonSkip.text = String.format("%d%s" , sec, ".".repeat(sec))
+            }
+
+            // Callback function, fired
+            // when the time is up
+            override fun onFinish() {
+                nextQuestionOrDie()
+            }
+        }.start()
+    }
+
+    /**
+     * Display question based on given position
+     */
     @SuppressLint("SetTextI18n")
     private fun showQues(position: Int) {
+        if(totalQuestion != 0 && position == totalQuestion){
+            Log.d(TAG, "Suspect back or up button had been performed.. skip retrieving data")
+            return
+        }
         database = FirebaseDatabase.getInstance().getReference("assessment")
         database.child(_ID).child("questions").get().addOnSuccessListener {
             if (it.exists()) {
@@ -247,7 +283,7 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
 
                 val question: HashMap<String, Any?> = (it.value as ArrayList<Any?>)[position] as HashMap<String, Any?>
 
-                correctAn = question["answer"].toString()
+                correctAn = question["answer"].toString().toInt()
                 binding.textViewQuestionDet.text = question["question"].toString()
                 binding.textViewCurrentQuestion.text = (position + 1).toString()
                 binding.listViewOption.adapter = ArrayAdapter(this,
@@ -256,29 +292,111 @@ class AssessmentAnsweringActivity : AppCompatActivity() {
                     binding.listViewOption.setItemChecked(p2, true)
                     binding.listViewOption.isEnabled = false
                     binding.buttonSkip.isEnabled = false
+                    binding.buttonNextAssessment.isEnabled = true
                     Log.d(TAG, "Option $p2 had been selected, checking answer")
                     val optionSelected = binding.listViewOption.getItemAtPosition(p2).toString()
-                    if(optionSelected == correctAn){
+                    if(p2 == correctAn){
                         Log.d(TAG, "Correct answer")
                         binding.listViewOption.setSelector(R.color.correct_ans)
                         correctQues++
                     }else{
+                        wrongQues++
                         Log.d(TAG, "Wrong answer, selected option = $optionSelected")
                         binding.listViewOption.setSelector(R.color.wrong_ans);
-                        for(i in 0 until binding.listViewOption.size){
-                            if(binding.listViewOption.getItemAtPosition(i).toString() == correctAn){
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                    binding.listViewOption.getChildAt(i).setBackgroundColor(getColor(R.color.correct_ans))
-                                }
-                                break
-                            }
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            binding.listViewOption.getChildAt(correctAn).setBackgroundColor(getColor(R.color.correct_ans))
                         }
                     }
+                    if(position != totalQuestion - 1){
+                        reloadLayoutState()
+                    }
+                    binding.buttonSkip.isEnabled = true
                 }
             }else{
                 Log.d(TAG, "Nothing loaded")
             }
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun nextQuestionOrDie(){
+        binding.textViewTimeout.text = null
+        binding.buttonSkip.text = getString(R.string.skip)
+        position++
+        if(position == (totalQuestion - 1)){
+            binding.buttonNextAssessment.visibility = View.GONE
+            binding.buttonSkip.text = "Finish"
+        }
+        when(position){
+            totalQuestion -> {
+                finishAssessment()
+            }
+            else -> {
+                binding.buttonNextAssessment.isEnabled = false
+                binding.listViewOption.isEnabled = true
+                binding.buttonSkip.isEnabled = true
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    binding.listViewOption.setBackgroundColor(getColor(R.color.white))
+                }
+                binding.listViewOption.setSelector(android.R.color.white)
+                showQues(position)
+            }
+        }
+    }
+
+    private fun finishAssessment(){
+        completionDateTime = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(Date())
+        elapsedTime = binding.textViewTimer.text.toString()
+
+        storeData()
+
+        startActivity(Intent(this, AssessmentCompletedResultActivity::class.java).apply {
+            this.putExtra("ID",_ID)
+            this.putExtra("SKIPPED",skipQues)
+            this.putExtra("CORRECT",correctQues)
+            this.putExtra("WRONG",wrongQues)
+            this.putExtra("TOTAL",totalQuestion)
+            this.putExtra("COMPLETION_DATE",completionDateTime)
+            this.putExtra("TIME_ELAPSED",elapsedTime)
+        })
+        finish()
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private fun storeData() {
+//        timerTask.cancel()
+        GlobalScope.launch {
+            FirebaseDatabase.getInstance().getReference("assessment").child(_ID).get().addOnSuccessListener {
+                if(it.exists()){
+                    val value = it.getValue(Assessment::class.java)
+
+                    val result = HashMap<String,HashMap<String,Any?>>()
+                    val resultChild = HashMap<String,Any?>()
+
+                    resultChild["title"] = value?.title!!
+                    resultChild["correct_questions"] = correctQues
+                    resultChild["wrong_questions"] = wrongQues
+                    resultChild["skipped_questions"] = skipQues
+                    resultChild["time_elapsed"] = elapsedTime
+                    resultChild["completion_date_time"] = completionDateTime
+
+                    result[_ID] = resultChild
+
+                    FirebaseDatabase.getInstance().getReference("assessment/completed/users")
+                        .child(FirebaseAuth.getInstance().currentUser?.uid!!).setValue(result)
+                        .addOnCanceledListener {
+                            Toast.makeText(applicationContext, "Done", Toast.LENGTH_SHORT).show()
+                        }.addOnFailureListener { err ->
+                            Toast.makeText(applicationContext, "Error ${err.message}", Toast.LENGTH_SHORT).show()
+                        }
+
+                }
+            }.addOnFailureListener {
+                Log.e(TAG, "Something goes wrong, please fix it!!! Exception in brief is ${it.message}")
+            }
+
+        }
+
     }
 
 }

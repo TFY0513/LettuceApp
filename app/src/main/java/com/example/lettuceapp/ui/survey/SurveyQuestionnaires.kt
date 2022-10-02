@@ -85,7 +85,7 @@ class SurveyQuestionnaires : Fragment() {
                         var score = 0f
                         val count = listView.adapter?.count!!
                         for(j in 0 until count){
-                            val view = listView.getChildAt(j)?.findViewById<ConstraintLayout>(R.id.constraintBase)?.findViewById<CardView>(R.id.cardViewBaseAssessment)
+                            val view = listView.getChildAt(j)?.findViewById<ConstraintLayout>(R.id.constraintBase)?.findViewById<CardView>(R.id.cardViewBaseAssessmentCompleted)
                                 ?.findViewById<ConstraintLayout>(R.id.constraintBaseSurveyCard)
                             val radio = view?.findViewById<RadioGroup>(R.id.radioGroup)
                             when (radio?.checkedRadioButtonId){

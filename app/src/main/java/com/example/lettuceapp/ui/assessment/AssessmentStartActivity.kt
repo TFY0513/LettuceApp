@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class AssessmentStartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAssessmentStartBinding
-    private lateinit var _title: String
+//    private lateinit var _title: String
 //    private lateinit var _date: String
     private lateinit var _ID: String
 
@@ -27,11 +27,12 @@ class AssessmentStartActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
 
-        _title = intent.getStringExtra("TITLE").toString()
-//        _date = intent.getStringExtra("DATE").toString()
-        _ID = intent.getStringExtra("ID").toString()
+//        _title = intent.getStringExtra("TITLE").toString()
+//        this.title = _title;
 
-        this.title = _title;
+//        _date = intent.getStringExtra("DATE").toString()
+
+        _ID = intent.getStringExtra("ID").toString()
 
         binding.textViewDescLabel.paintFlags = binding.textViewDescLabel.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
@@ -50,6 +51,7 @@ class AssessmentStartActivity : AppCompatActivity() {
         loadPage(this, object: AssessmentCallBack{
             override fun onCallBack(assessment :Assessment) {
                 Log.d("", "Title => ${assessment.title!!}")
+                title = assessment.title
                 binding.textViewTitle.text = assessment.title
                 binding.textViewDuration.text = String.format("%s %s", assessment.duration, getString(
                     R.string.assessment_duration_unit_default))

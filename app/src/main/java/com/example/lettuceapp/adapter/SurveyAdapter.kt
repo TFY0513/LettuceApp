@@ -50,7 +50,7 @@ class SurveyAdapter (surveyList: List<Survey>) :
         val question: TextView
         val category: TextView
         init {
-            cardSurveyBase = itemView.findViewById(R.id.cardViewBaseAssessment)
+            cardSurveyBase = itemView.findViewById(R.id.cardViewBaseAssessmentCompleted)
             cardSurveyQuestion = itemView.findViewById(R.id.cardViewQuestionSurvey)
             questionNumber = itemView.findViewById(R.id.textViewQuestionNumber)
             question = itemView.findViewById(R.id.textViewSurveyQuestion)

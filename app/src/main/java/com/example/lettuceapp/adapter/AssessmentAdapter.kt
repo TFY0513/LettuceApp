@@ -52,6 +52,7 @@ class AssessmentAdapter (assessmentType: AssessmentAdapter.Type, assessmentList:
                     }
                     Type.COMPLETED -> {
                         //Redirect to show result
+                        holder.takeTest.text = "Check\nresult"
                         val intent = Intent(view.context, AssessmentCompletedResultActivity::class.java)
                         intent.putExtra("ID",  questionId!![position])
                         ContextCompat.startActivity(view.context, intent, null)
@@ -86,6 +87,7 @@ class AssessmentAdapter (assessmentType: AssessmentAdapter.Type, assessmentList:
         val desc: TextView
         val duration: TextView
         val questionCount: TextView
+        val takeTest: TextView
 
         init {
             date = itemView.findViewById(R.id.textViewDate)
@@ -93,6 +95,7 @@ class AssessmentAdapter (assessmentType: AssessmentAdapter.Type, assessmentList:
             desc = itemView.findViewById(R.id.textViewDescription)
             duration = itemView.findViewById(R.id.textViewDuration)
             questionCount = itemView.findViewById(R.id.textViewQuestionCount)
+            takeTest = itemView.findViewById(R.id.textViewTakeTest)
         }
     }
 
